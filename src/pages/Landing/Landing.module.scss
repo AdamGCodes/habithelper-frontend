@@ -1,0 +1,28 @@
+main{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    section{
+        margin-top: 30vh;
+        width: 50%;
+        padding: 30px;
+        background-color: rgba(2550,255,255,0.70);
+        color: #012e3f;
+        border-radius: 15px;
+        filter: drop-shadow(5px 5px 5px black);
+        h1{
+            font-size: 30pt;
+        }
+
+        h2{
+            margin: 10px 0px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 20pt;
+            line-height: 1.5;
+            color: #012e3f;
+        }
+    }
+}

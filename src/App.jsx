@@ -24,8 +24,6 @@ import Journal from './pages/Journal/Journal';
 import {getUser, removeToken } from './utils/auth'
 
 
-
-
 const App = () => {
 //!---Setting States
 const [user, setUser] = useState(getUser())
@@ -41,8 +39,10 @@ const handleSignOut = () => {
 }
   
   return(
+    <>
+      <NavBar user={user} handleSignOut={handleSignOut} />
       <main>
-        <NavBar user={user} handleSignOut={handleSignOut} />
+        
         <Routes>
           { user 
             ?(
@@ -67,6 +67,7 @@ const handleSignOut = () => {
 
         </div>
       </main>
+    </>
   )
 };
 

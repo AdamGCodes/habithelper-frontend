@@ -15,7 +15,18 @@ const Landing = () => {
     return (
         
         <main>
-            <h1>Landing</h1>
+            <section>
+                <h1>Welcome To HabitHelper</h1>
+                <h2>“Quality is not an act, it is a habit.”</h2>
+                <p>
+                    We all have habits we know do not serve us well and we all aspire to form good 
+                    habits.
+                </p>
+                <p>
+                    HabitHelper has been created to help you form better habits and help you move 
+                    towards the person you wish to be.
+                </p>
+            </section>
         </main>
     )
 }

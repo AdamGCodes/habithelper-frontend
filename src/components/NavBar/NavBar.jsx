@@ -1,10 +1,12 @@
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import styles from '../NavBar/NavBar.module.scss'
+import styles from '../NavBar/NavBar.module.scss';
 
 
-const NavBar = ({user, handleSignOut}) => {
+const NavBar = ({ user, handleSignOut }) => {
     //!---State
-    // const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+    // const [burgerClass, setBurgerClass] = useState("burger-bar unclicked")
 
     return(
         <div className={styles.navContainer}>
@@ -17,11 +19,11 @@ const NavBar = ({user, handleSignOut}) => {
                         console.log("menu clicked!");
                         console.log(menuOpen)
                     }}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span className={styles.burgerClass}></span>
+                    <span className={styles.burgerClass}></span>
+                    <span className={styles.burgerClass}></span>
                 </div>
-                <ul>
+                <ul className={menuOpen ? `${styles.open}` : ""}>
                     <li><NavLink to="/">Home</NavLink></li>
                     { user? <>
                         <li><NavLink to="/habit-helpers">HabitHelpers</NavLink></li>
