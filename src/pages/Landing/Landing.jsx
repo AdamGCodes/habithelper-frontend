@@ -1,5 +1,6 @@
 //!---Modules/Libraries
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 //!---Styles
 import styles from './Landing.module.scss'
@@ -26,6 +27,10 @@ const Landing = () => {
                     HabitHelper has been created to help you form better habits and help you move 
                     towards the person you wish to be.
                 </p>
+                <div className={styles.landingPageButtons}>
+                    <Link to="/sign-up/"><a>Sign Up</a></Link>
+                    <Link to="/sign-in/"><a>Sign In</a></Link>
+                </div>
             </section>
         </main>
     )

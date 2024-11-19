@@ -24,5 +24,22 @@ main{
             line-height: 1.5;
             color: #012e3f;
         }
+        .landingPageButtons {
+            display: flex;
+            justify-content: center;
+            a{
+                margin: 10px;
+                padding: 5px 15px;
+                font-size: 18pt;
+                background-color: #1F6E8D;
+                color: white;
+                border-radius: 10px;
+            }
+            a:hover{
+                background-color: white;
+                color: #1F6E8D;
+            }
+        }
+
     }
 }

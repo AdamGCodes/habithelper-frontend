@@ -1,23 +1,29 @@
 //!---Modules/Libraries
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
+import { format } from 'date-fns'
+
 
 //!---Styles
 import styles from './Journal.module.scss'
 
 //!---Services
-//!---ADDING ALL DELETE AS REQUIRED
-// import { index, show, create, update, deleteJournal } from '../../services/journalService'
+// import { index, show, create, update, deleteJournal } from '../../services/journalService.js'
 
-//!---Componants
+//!--- Componants
+import JournalIndex from '../../components/JournalIndex/JournalIndex.jsx'
+import JournalShow from '../../components/JournalShow/JournalShow.jsx'
+const Journal = ({ user }) => {
 
+    const [journals, setJournals] = useState([])
 
-const Journal = () => {
     return (
         <main>
-            <h1>Journal Page</h1>
+            <h1>Your Journals</h1>
+            <JournalIndex/>
         </main>
     )
-}
+};
 
 
 export default Journal

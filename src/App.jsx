@@ -48,16 +48,16 @@ const handleSignOut = () => {
             ?(
               <>
                 <Route path="/" element={<Dashboard user={user} />} />
-                <Route path="/timers" element={<Timer user={user}/>} />
-                <Route path="/habit-helpers" element={<HabitHelper user={user} />} />
-                <Route path="/journals" element={<Journal />} />
+                <Route path="/timers/" element={<Timer user={user}/>} />
+                <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
+                <Route path="/journals/" element={<Journal user = { user } />} />
               </>
             )
             : (
               <>
                 <Route path="/" element={<Landing />} />
-                <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
-                <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
+                <Route path="/sign-up/" element={<SignUp setUser={setUser} />} />
+                <Route path="/sign-in/" element={<SignIn setUser={setUser} />} />
               </>
             )
           }
