@@ -1,38 +1,39 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom'
-// import { format } from 'date-fns'
+import { format } from 'date-fns'
 
 
 //!---Styles
 import styles from './JournalShow.module.scss'
 
 //!---Services
-import { show, create, update, deleteJournal } from '../../services/journalService.js'
+import { show, deleteJournal } from '../../services/journalService'
 
 //!--- Componants
 
 
-const JournalShow = ({ user }) => {
+const JournalShow = () => {
+    //!---Location Variables
+    const { journalId } = useParams();
+    const navigate = useNavigate();
+    
     //!---States
     const [journal, setJournal] = useState(null)
 
-    //!---Location Variables
-    const { journalId } = useParams()
-    const navigate = useNavigate()
-
     const fetchJournal = useCallback(async () => {
         try {
-            const { data } = await show(journalId)
+            const { data } = await show(journalId);
+            console.log(data)
             setJournal(data)
         } catch (error) {
-            console.log(error.response.data)
+            console.log(error.response?.data || error.message);
         }
     }, [journalId])
 
     useEffect(() => {
-        fetchJournal()
-    }, [journalId, fetchJournal])
-    console.log(journal)
+        fetchJournal();
+    }, [fetchJournal]);
+    // console.log(journal)
 
     //!---Handlers
     const handleDeleteJournal = async () => {
@@ -42,17 +43,25 @@ const JournalShow = ({ user }) => {
         } catch(error) { 
             console.log(error)
         }
-    }
+    };
+
     //!---Handle formatting dates
     const formatDate = (dateString) => {
-        return format(new Date(dateString), "d MMM, yyyy @ h:mm a");
+        return format(new Date(dateString), "h:mm 'on' d MMM, yyyy");
     };
+
+    if (!journal) {
+        return <p>Loading journal...</p>;
+    }
 
     return (
         <main>
-            <h1>Journal Entry: {formatDate(journal.created_at)} </h1>
             <section>
+                <h1>Journal Entry:</h1>
+                <h2>{formatDate(journal.created_at)}</h2>
                 <p>{journal.text}</p>
+                <button onClick={handleDeleteJournal}>Delete</button>
+                <Link to={`/journals/${journalId}/edit`}>Edit</Link>
             </section>
         </main>
     )

@@ -27,8 +27,9 @@ const JournalIndex = () => {
             }
         }
         fetchJournals()
+        console.log(journals)
     }, [])
-    console.log(journals)
+    
 
     //!---Handle formatting dates
     const formatDate = (dateString) => {

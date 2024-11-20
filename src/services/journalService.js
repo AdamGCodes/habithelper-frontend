@@ -8,8 +8,9 @@ export const index = () => {
 }
 
 //!---Show
-export const show = (id) => {
-    return axios.get(`${BASE_URL}/${id}/`)
+export const show = (journalId) => {
+    //Path = /journals/:journalId
+    return axios.get(`${BASE_URL}/${journalId}/`)
 }
 
 //!---Create
@@ -18,11 +19,13 @@ export const create = (formData) => {
 }
 
 //!---Update
-export const update = (id, formData) => {
-    return axios.put(`${BASE_URL}/${id}/`, formData)
+export const update = (journalId, formData) => {
+    //Path = /journals/:journalId
+    return axios.put(`${BASE_URL}/${journalId}/`, formData)
 }
 
 //!---Delete
-export const deleteJournal = (id) => {
-    return axios.delete(`${BASE_URL}/${id}/`)
+export const deleteJournal = (journalId) => {
+    //Path = /journals/:journalId
+    return axios.delete(`${BASE_URL}/${journalId}/`)
 }

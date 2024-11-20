@@ -8,6 +8,7 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 //!--- Componants
 import NavBar from './components/NavBar/NavBar';
+import TimerWidgit from './components/TimerWidgit/TimerWidgit';
 
 //!--- Pages
 import SignUp from './pages/SignUp/SignUp';
@@ -22,6 +23,8 @@ import Journal from './pages/Journal/Journal';
 
 //!--- Utils
 import {getUser, removeToken } from './utils/auth'
+import JournalShow from './components/JournalShow/JournalShow';
+import JournalForm from './components/JournalForm/JournalForm';
 
 
 const App = () => {
@@ -48,9 +51,13 @@ const handleSignOut = () => {
             ?(
               <>
                 <Route path="/" element={<Dashboard user={user} />} />
-                <Route path="/timers/" element={<Timer user={user}/>} />
+                <Route path="/timers/" element={<><Timer/><TimerWidgit/> </>} />
+                
+
                 <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
-                <Route path="/journals/" element={<Journal user = { user } />} />
+                <Route path="/journals/" element={<Journal />} />
+                <Route path="/journals/:journalId" element={<JournalShow />} />
+                <Route path="/journals/:journalId/edit" element={<JournalForm />} />
               </>
             )
             : (

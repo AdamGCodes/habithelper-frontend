@@ -1,0 +1,31 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .timerSection{
+        display: flex;
+        flex-direction: column;
+        background-color: lightblue;
+        justify-content: center;
+        .headingDiv{
+            background-color: white;
+        }
+        .timerDiv{
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            margin: 20px;
+            border-radius: 20px;
+            .timer{
+                background-color: yellow;
+
+                .timer_container{
+                    background-color: blue;
+                    color: black;
+                }
+            }
+        }
+    }
+    
+}
