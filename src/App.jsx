@@ -52,6 +52,7 @@ const handleSignOut = () => {
               <>
                 <Route path="/" element={<Dashboard user={user} />} />
                 <Route path="/timers/" element={<><Timer/> </>} />
+                <Route path="/timers/:timersId" element={<><Timer /> </>} />
                 
 
                 <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
