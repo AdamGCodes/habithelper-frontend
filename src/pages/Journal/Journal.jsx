@@ -19,7 +19,6 @@ const Journal = ({ user }) => {
 
     return (
         <main>
-            <h1>Your Journals</h1>
             <JournalIndex/>
         </main>
     )

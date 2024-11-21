@@ -3,29 +3,84 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    line-height: 0.5;
+    }
     .timerSection{
         display: flex;
         flex-direction: column;
-        background-color: lightblue;
         justify-content: center;
-        .headingDiv{
-            background-color: white;
+        background-color: transparent;
+        width: 90vw;
+        ul{
+            h1{
+                background-color: white;
+                padding: 20px;
+                border-radius: 20px;
+                height: fit-content;
+                line-height: 1;
+            }
         }
         .timerDiv{
+            position: relative;
             display: flex;
             justify-content: center;
-            background-color: white;
+            background-color: rgba(2550, 255, 255, 1);
+            width: 60vw;
             margin: 20px;
             border-radius: 20px;
-            .timer{
-                background-color: yellow;
-
-                .timer_container{
-                    background-color: blue;
-                    color: black;
+            
+            .timerDisplayGroup{
+                line-height: 1;
+                h2{
+                    font-size: 3vw;
+                    
                 }
+                p{
+                    margin: 5px 0px;
+                    line-height: 2;
+                    font-size: 3vw;
+                }
+                small{
+                    line-height: 1;
+                }
+            }
+            .delBtn {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin: 0px;
+                z-index: 1;
+                border-radius: 0 0 20px 0;
+                width: 10vw;
+                height: 12vh;
+                border: none;
+                filter: drop-shadow(-2px -2px 2px black);
+            }
+            .delBtn:hover {
+                filter: drop-shadow(0px 0px 0px black);
+                background-color: #1F6E8D;
+                border: solid black 5px;
+                color: white;
+            }
+            .rstBtn {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                margin: 0px;
+                z-index: 1;
+                border-radius: 0 0 0 20px;
+                width: 10vw;
+                height: 12vh;
+                border: none;
+                filter: drop-shadow(2px -2px 2px black);
+                }
+            .rstBtn:hover {
+                filter: drop-shadow(0px 0px 0px black);
+                background-color: #1F6E8D;
+                border: solid black 5px;
+                color: white;
             }
         }
     }
+
     
-}

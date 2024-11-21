@@ -51,7 +51,7 @@ const handleSignOut = () => {
             ?(
               <>
                 <Route path="/" element={<Dashboard user={user} />} />
-                <Route path="/timers/" element={<><Timer/><TimerWidgit/> </>} />
+                <Route path="/timers/" element={<><Timer/> </>} />
                 
 
                 <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />

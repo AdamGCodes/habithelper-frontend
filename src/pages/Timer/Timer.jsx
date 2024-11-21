@@ -19,7 +19,6 @@ const Timer = () => {
 
     return (
         <main>
-            <h1>Your Temperance Timers</h1>
             <TimerIndex />
         </main>
     )

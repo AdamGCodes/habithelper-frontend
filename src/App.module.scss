@@ -17,26 +17,27 @@ button:hover{
     color: #1F6E8D;
 }
 
-// main{
-//     display: flex;
-//     width: 100%;
-//     background-color: green;
-//     section{
-//         width: 100%;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
+main{
+    display: flex;
+    width: 100%;
+    margin: 0px;
+    section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
         
-//         form{
-//             width: 100%;
-//             label{
-//                 font-size: 18pt;
-//             }
-//             input{
-//                 font-size: 18pt;
-//             }
+        form{
+            width: 100%;
+            label{
+                font-size: 18pt;
+            }
+            input{
+                font-size: 18pt;
+            }
             
-//         }
-//     }
-// }
+        }
+    }
+}

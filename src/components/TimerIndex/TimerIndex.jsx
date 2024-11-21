@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import { format, setMinutes } from 'date-fns'
+
+// import { format, setMinutes } from 'date-fns'
 
 
 //!---Styles
 import styles from './TimerIndex.module.scss'
 
 //!---Services
-import { index } from '../../services/timerService'
+import { index, deleteTimer, update } from '../../services/timerService'
 
 //!--- Componants
 import TimerWidgit from "../TimerWidgit/TimerWidgit";
+
 
 const TimerIndex = () => {
 
     //!---States
     const [timers, setTimers] = useState([])
 
-    const [seconds, setSeconds]= useState(0)
-    const [minutes, setminutes] = useState(0)
-    
-    
+    const startDate = new Date('2024-11-15T15:24:30Z');
+    const Now_IN_MS = new Date().getTime();
+    const dateTimeSinceStart = startDate + Now_IN_MS;
 
     useEffect(() => {
         const fetchTimers = async () => {
@@ -32,35 +32,46 @@ const TimerIndex = () => {
             }
         }
         fetchTimers()
-        console.log(timers)
     }, [])
 
-
-    //!---Handle formatting dates
-    const formatDate = (dateString) => {
-        return format(new Date(dateString), "d MMM, yyyy @ h:mm a");
+    //!---Handlers
+    const handleDeleteTimer = async (id) => {
+        try {
+            console.log("Deleting timer with ID:", id)
+            await deleteTimer(id)
+            setTimers((prevTimers) => {
+                console.log("Timers beofre filtering:", prevTimers)
+                const updatedTimers = prevTimers.filter((timer) => timer.id !==id);
+                console.log("Timers after filtering:", updatedTimers)
+                return updatedTimers;
+            })
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     return (
         <main>
             <section className={styles.timerSection}>
-                <div className={styles.headingDiv}>
-                    <h1>The list of timers</h1>
-                    <TimerWidgit></TimerWidgit>
-                </div>
                 <ul>
-                    {timers.map((timer) => (
-                        <Link key={timer.id} to={`/timers/${timer.id}/`}>
+                    <h1>My Temperance Timers</h1>
+                    {timers.length > 0 ? (
+                    timers.map((timer) => (
+                        <li key={timer.id}>
                             <div className={styles.timerDiv}>
-                                
-
-                                <li>
-                                    <span>{formatDate(timer.created_at)}</span>
-                                </li>
+                                <div className={styles.timerDisplayGroup}>
+                                    <h2>{(timer.name)}</h2>
+                                    <p><small>{(timer.reason)}</small></p>
+                                    <TimerWidgit startDate={(timer.created_at)} />
+                                </div>
+                                <button className={styles.delBtn} onClick={() => handleDeleteTimer(timer.id)}>X</button>
+                                <button className={styles.rstBtn} onClick={() => handleDeleteTimer(timer.id)}></button>
                             </div>
-                            
-                        </Link>
-                    ))}
+                        </li>
+                        ))
+                    ) : (
+                        <p>No timers found.</p>
+                    )}
                 </ul>
             </section>
         </main>
@@ -68,3 +79,9 @@ const TimerIndex = () => {
 }
 
 export default TimerIndex;
+
+
+// !---Handle formatting dates
+// const formatDate = (dateString) => {
+//     return format(new Date(dateString), "d MMM, yyyy @ h:mm a");
+// };
