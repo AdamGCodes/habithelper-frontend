@@ -1,0 +1,28 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 250px;
+    
+    .user{
+        width: 90%;
+    }
+    section{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px;
+        width: 200px;
+        padding: none;
+        div {
+                margin-left: none;
+                ul {
+                    margin-left: none;
+                    li {
+                        margin-left: none;
+                        list-style: none;
+                        font-size: 10pt;
+                    }
+                }
+            }
+        }
+    }

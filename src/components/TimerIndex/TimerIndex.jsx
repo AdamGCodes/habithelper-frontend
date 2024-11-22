@@ -87,13 +87,10 @@ const TimerIndex = () => {
     return (
         <main>
             <section className={styles.timerSection}>
-                {message}
                 {modalOpen && (
                 // createPortal( 
                 <SiteModal onSubmit={handleButtonClick} onCancel={handleButtonClick} onClose={handleButtonClick}>
-                    <div>
-                        <TimerForm timers = {timers}/>
-                    </div>
+                    <TimerForm timers = {timers}/>
                 </SiteModal>
                 // ,document.body
                     // 

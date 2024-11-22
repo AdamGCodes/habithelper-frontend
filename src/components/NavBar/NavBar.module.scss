@@ -1,19 +1,25 @@
 .navContainer{
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     position: absolute;
     top: 0;
     right: 0;
+    
+    .hamburgerWrapper {
+            display: none;
+        }
     h1 {
         position: absolute;
-        top: 3.5vh;
+        top: -20px;
         left: 40px;
         color: white;
-        font-family: "Noto Sans Display", serif;
-        font-size: 10vh;
+        font-family: "Faculty Glyphic", sans-serif;
+        font-size: 15vw;
         font-weight: 500;
         font-style: normal;
         filter: drop-shadow(3px 3px 2px #000000);
+        margin-top: 10vh;
         z-index: 3;
         }
     nav{
@@ -26,12 +32,14 @@
         height: 25vh;
         filter: drop-shadow(5px 5px 10px #000000);
         z-index: 1;
-
-
+        align-items: flex-end;
+        
         ul{
             display: flex;
             position: absolute;
             right: 0;
+            top: 0;
+            
 
             li{
                 display: flex;
@@ -61,32 +69,20 @@
         height: 2rem;
         z-index: 3;
 
-        span {
-            height: 0.4rem;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 0.2rem;
-        }
-        span.clicked:nth-child(1){
-            transform: roate(45deg) translate(0.75em, 1.25em);
-            transition: ease-out 0.5s;
-        }
-        span.clicked:nth-child(2) {
-            transform: scale(0.1);
-            transition: ease-out 0.5s;
-        }
-        span.clicked:nth-child(3) {
-            transform: roate(125deg) translate(-0.5em, 1em);
-            transition: ease-out 0.5s;
-        }
-
-        span.unclicked{
-            transform: rotate(0) translate(0);
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
-        }
-
     }
+    @media (min-width: 100px) {
+            h1 {
+                position: absolute;
+                font-size: 50pt;
+                left: 10px;
+            }
+    }
+
+
     @media (max-width: 790px) {
+        .hamburgerWrapper{
+            display: flex;
+        }
         .menu {
             display: flex
         }
@@ -96,22 +92,36 @@
         }
 
         nav ul {
-            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-100%);
             flex-direction: column;
             margin-bottom: 0.25rem;
+            position: absolute;
+            width: 100%;
+            line-height: 1.5;
+            text-align: center;
+            background-color: white;
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0.6s;
+
+
             
         }
 
         nav ul.open {
-            display: flex;
+            visibility: visible;
+            opacity: 1;
             position: absolute;
             padding-top: 30px;
             padding-bottom: 30px;
             top: 22vh;
-            width: 100vw;
+            width: 100%;
             line-height: 1.5;
             text-align: center;
             background-color: white;
+            transform: translateY(0); // Slide into view
+            opacity: 1; // Fully visible
+            
         }
 
         nav ul li {

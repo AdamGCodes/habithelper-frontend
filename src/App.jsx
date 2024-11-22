@@ -3,12 +3,11 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 
 //!---Styles
 import styles from './App.module.scss'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 
 //!--- Componants
 import NavBar from './components/NavBar/NavBar';
-import TimerWidgit from './components/TimerWidgit/TimerWidgit';
+
 
 //!--- Pages
 import SignUp from './pages/SignUp/SignUp';

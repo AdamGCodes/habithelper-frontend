@@ -1,33 +1,29 @@
 :root {
+  box-sizing: border-box;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
   place-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  max-width: 100vw;
   font-family: "Lexend", serif;
-
-
-body {
-  box-sizing: border-box;
     background-image: url('../public/images/wooden-dock-lake-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    display: flex;
 
+
+body {
+  display: flex;
     }
 }
 
 h1 {
-  font-family: "Noto Sans Display", serif;
+  font-family: "Faculty Glyphic", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }

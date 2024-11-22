@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
-
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 //!---Styles
 import styles from './JournalIndex.module.scss'
@@ -10,7 +10,7 @@ import styles from './JournalIndex.module.scss'
 import { index } from '../../services/journalService.js'
 
 //!--- Componants
-
+import FullCalendar from '../CalendarView/CalendarView.jsx';
 
 const JournalIndex = () => {
 
@@ -33,7 +33,7 @@ const JournalIndex = () => {
 
     //!---Handle formatting dates
     const formatDate = (dateString) => {
-        return format(new Date(dateString), "d MMM, yyyy @ h:mm a");
+        return "Entry for: " + format(new Date(dateString), "do MMM yy") //@ h:mm a");
     };
 
     return (

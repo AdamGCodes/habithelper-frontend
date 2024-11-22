@@ -61,10 +61,10 @@ const TimerForm = ({timers}) => {
     }
 
     return (
-        <main>
+        <main className={styles.timeFormMain}>
             <section>
                 <form onSubmit={handleSubmit}>
-                    <h1>{timerId ? "Update your timer info." : "Create your timer."}</h1>
+                    <h1>{timerId ? "Update your timer info." : "Create Your Timer"}</h1>
                     <label htmlFor="name">What is the habit you want to quit?</label>
                     <input
                         type="text"
@@ -75,7 +75,7 @@ const TimerForm = ({timers}) => {
                     />
                     {errors.name && <p className='error'>{errors.name.message}</p>}
 
-                    <label htmlFor="reason">If you wish, add a brief note about why you want to quit this habbit.</label>
+                    <label htmlFor="reason">What's motivating you to quit?</label>
                     <input
                         type="text"
                         name="reason"
