@@ -43,7 +43,7 @@ const Dashboard = ({user}) => {
     return (
         <main className={styles.dashboard}>
             <section className={styles.user}>
-                <h2>Welcome {user.first_name}</h2>
+                <h2>Welcome hi {user.first_name}</h2>
             </section>
             <section className={styles.dashboardTimer}>
                 <div>
