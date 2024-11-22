@@ -16,7 +16,7 @@ const Landing = () => {
     return (
         
         <main>
-            <section>
+            <section className={styles.landingSection}>
                 <h1>Welcome To HabitHelper</h1>
                 <h2>“Quality is not an act, it is a habit.”</h2>
                 <p>
@@ -28,8 +28,8 @@ const Landing = () => {
                     towards the person you wish to be.
                 </p>
                 <div className={styles.landingPageButtons}>
-                    <Link to="/sign-up/"><a>Sign Up</a></Link>
-                    <Link to="/sign-in/"><a>Sign In</a></Link>
+                    <Link to="/sign-up/">Up</Link>
+                    <Link to="/sign-in/">Sign In</Link>
                 </div>
             </section>
         </main>

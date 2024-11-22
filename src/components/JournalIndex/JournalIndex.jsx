@@ -39,7 +39,7 @@ const JournalIndex = () => {
     return (
         <main>
             <section>
-                <h1>The list of journals</h1>
+                <h1>Your Journal Entries</h1>
                 <ul>
                     {journals.map((journal) => (
                         <Link key={journal.id} to={`/journals/${journal.id}/`}>

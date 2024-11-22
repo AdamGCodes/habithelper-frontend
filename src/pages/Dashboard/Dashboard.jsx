@@ -42,38 +42,17 @@ const Dashboard = ({user}) => {
 
     return (
         <main className={styles.dashboard}>
-            <section className={styles.user}>
-                <h2>Welcome hi {user.first_name}</h2>
-            </section>
-            <section className={styles.dashboardTimer}>
-                <div>
-                    <h2>Your Timers</h2>
-                    <ul>
-                        {timers.length > 0 ? (
-                            timers.map((timer) => (
-                                <li key={timer.id}>
-                                    <div className={styles.timerDiv}>
-                                        <div className={styles.timerDisplayGroup}>
-                                            <h2>{(timer.name)}</h2>
-                                            <p><small>{(timer.reason)}</small></p>
-                                            <small><TimerWidgit startDate={(timer.started)} /></small>
-                                        </div>
-                                    </div>
-                                </li>
-                            ))
-                        ) : (
-                            <p>No timers found.</p>
-                        )}
-                    </ul>
+            <section className={styles.dashboardSection}>
+                <div className={styles.userDiv}>
+                    <h2>Welcome {user.first_name}</h2>
                 </div>
-            </section>
-            <section className={styles.dashboardJournals}>
-                <div>
+                <div className={styles.timersDiv}>
                     <h2>Your Journals</h2>
                 </div>
-            </section>
-            <section className={styles.dashboardHelpers}>   
-                <div>
+                <div className={styles.journalsDiv}>
+                    <h2>Your Journals</h2>
+                </div>
+                <div className={styles.helpersDiv}>
                     <h2>HabitHelpers</h2>
                 </div>
             </section>

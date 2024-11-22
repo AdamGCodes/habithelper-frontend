@@ -39,8 +39,8 @@ const SignIn = ({ setUser }) => {
         
     }
     return (
-        <main>
-            <section>
+        <main className={styles.signInMain}>
+            <section className={styles.signInSection}>
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
