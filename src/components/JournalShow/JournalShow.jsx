@@ -56,7 +56,7 @@ const JournalShow = () => {
 
     return (
         <main>
-            <section>
+            <section className={styles.journalShowSection}>
                 <h1>Journal Entry:</h1>
                 <h2>{formatDate(journal.created_at)}</h2>
                 <p>{journal.text}</p>

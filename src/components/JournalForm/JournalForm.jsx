@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -56,15 +56,16 @@ const JournalForm = () => {
     }
 
     return (
-        <main>
-            <section>
+        <main className={styles.journalMain}>
+            <section className={styles.journalFormSection}>
                 <form onSubmit={handleSubmit}>
                     <h1>{ journalId ? "Update your journal entry." : "What's on your mind?"}</h1>
                     <label htmlFor="Text">Take take some time to think about your day connect the events of the day to how they made you feel? What went well, what can you do better tomorrow. And what one thing are you greatful for today?</label>
-                    <input 
-                    type="text"
+                    <textarea 
                     name="text"
                     id="text"
+                    rows={4}
+                    cols={50}
                     value={ formData.text }
                     onChange={ handleChange }
                     />

@@ -28,7 +28,7 @@ const Landing = () => {
                     towards the person you wish to be.
                 </p>
                 <div className={styles.landingPageButtons}>
-                    <Link to="/sign-up/">Up</Link>
+                    <Link to="/sign-up/">Sign Up</Link>
                     <Link to="/sign-in/">Sign In</Link>
                 </div>
             </section>

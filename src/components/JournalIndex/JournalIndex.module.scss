@@ -1,22 +1,58 @@
-main{
-    section{
-        ul{
-            a{
-                text-decoration: none;
-                li{
+.journalMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    
+}
+
+.journalIndexSection {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+        position: relative;
+        top: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgba(2550, 255, 255, 1);
+        width: 60vw;
+        margin: 20px;
+        border-radius: 20px;
+
+        h1 {
+            color: #012e3f;
+            margin: 50px 0px;
+        }
+
+        a {
+            text-decoration: none;
+
+            li {
+                list-style: none;
+                font-size: 20pt;
+                line-height: 2;
+                color: #012e3f;
+
+                span {
                     list-style: none;
                     font-size: 20pt;
                     line-height: 2;
-                    color: darkblue;
-                    
+                    color: #012e3f;
                 }
-                li:hover{
-                    background-color: white;
-                    padding: 0px 15px;
-                    border-radius: 20px;
-                }
+
             }
-            
+
+            li:hover {
+                color: white;
+                background-color: #012e3f;
+                padding: 0px 15px;
+                border-radius: 20px;
+            }
         }
+
     }
 }

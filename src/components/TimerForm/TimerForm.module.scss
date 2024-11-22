@@ -17,6 +17,11 @@
         background-color: transparent;
         margin-top: 0;
         form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             h1 {
                 margin: 20px auto;
             }
@@ -25,7 +30,7 @@
             }
 
             input {
-                width: 100%;
+                width: 75%;
             }
         }
     }

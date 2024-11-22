@@ -3,7 +3,10 @@ main{
     text-align: center;
     justify-content: center;
     .landingSection{
+        display: flex;
+        justify-content: center;
         margin-top: 250px;
+        margin-left: 100px;
         width: 80%;
         padding: 30px;
         background-color: rgba(2550,255,255,0.70);

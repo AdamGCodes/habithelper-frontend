@@ -47,7 +47,7 @@ const Dashboard = ({user}) => {
                     <h2>Welcome {user.first_name}</h2>
                 </div>
                 <div className={styles.timersDiv}>
-                    <h2>Your Journals</h2>
+                    <h2>Your Timers</h2>
                 </div>
                 <div className={styles.journalsDiv}>
                     <h2>Your Journals</h2>

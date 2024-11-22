@@ -8,7 +8,6 @@ const NavBar = ({ user, handleSignOut }) => {
     //!---State
     const [menuOpen, setMenuOpen] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
-    // const [burgerClass, setBurgerClass] = useState("burger-bar unclicked")
 
     return(
         <>
@@ -34,7 +33,7 @@ const NavBar = ({ user, handleSignOut }) => {
                 <ul className={menuOpen ? `${styles.open}` : ""}>
                         <li onClick={() => setMenuOpen(false)}><NavLink to="/">Home</NavLink></li>
                     { user? <>
-                        <li onClick={() => setMenuOpen(false)}><NavLink to="/habit-helpers/">HabitHelpers</NavLink></li>
+                        {/* <li onClick={() => setMenuOpen(false)}><NavLink to="/habit-helpers/">HabitHelpers</NavLink></li> */}
                         <li onClick={() => setMenuOpen(false)}><NavLink to="/journals/">Journals</NavLink></li>
                         <li onClick={() => setMenuOpen(false)}><NavLink to="/timers/">Temperance Timers</NavLink></li>
                         <li onClick={() => setMenuOpen(false)}><NavLink to="" onClick={handleSignOut}>Sign Out</NavLink></li>

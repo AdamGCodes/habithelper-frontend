@@ -15,7 +15,7 @@ export const show = (journalId) => {
 
 //!---Create
 export const create = (formData) => {
-    return axios.post(BASE_URL, formData)
+    return axios.post(`${BASE_URL}/`, formData)
 }
 
 //!---Update
