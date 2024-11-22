@@ -3,17 +3,17 @@ import styles from './SiteModal.module.scss'
 
 
 
-const SiteModal = ({children, onSubmit, onClose, onCancel}) => {
+const SiteModal = ({children, onClose, onCancel}) => {
     
     return (
         <div className={styles.modalContainer} onClick={(e) => { 
             if (e.target.className === "modalContainer") {
-                onClose("The modal was closed"); }}}>
+                onClose(); }}}>
             <div className={styles.modal}>
                 {children}
                 <p className={styles.close} onClick={ () => onClose("The close button was clicked") }>&times;</p>
-                <button onClick={() => onSubmit("The submit button was clicked")}>Submit</button>
-                <button onClick={() => onCancel("The cancel button was clicked")} >Cancel</button>
+                {/* <button type='submit'>{'Create'} Timer</button>
+                <button onClick={() => onCancel()} >Cancel</button> */}
             </div>
             
         </div>

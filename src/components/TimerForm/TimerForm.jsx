@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { DtPicker } from 'react-calendar-datetime-picker'
 
 
-
 //!---Styles
 import styles from './TimerForm.module.scss'
 import 'react-calendar-datetime-picker/dist/style.css'
@@ -46,6 +45,7 @@ const TimerForm = ({timers}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log("form submitted")
         try {
             let res
             if (timerId) {
