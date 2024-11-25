@@ -6,10 +6,10 @@ import styles from './TimerDisplay.module.scss'
 
 const TimerDisplay = ({ value, type}) => {
     return (
-        <div className={styles.timerElement}>
-            <span><small>{type}</small></span>
+        <>
+            <small>{type}</small>
             <p>{value}</p>
-        </div>
+        </>
     );
 };
 

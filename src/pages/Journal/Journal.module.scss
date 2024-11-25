@@ -1,5 +1,4 @@
 .journalSection{
-    margin-top: 0px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -8,11 +7,15 @@
     border-radius: 15px;
     width: 90%;
     filter: drop-shadow(5px 5px 5px black);
-    padding-top: 0;
-    .journalsDiv{
-        margin-top: 0px;
-        padding: 0px;
-        margin: -400px;
+    background-color: purple;
+    .journalDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0px 20px 0px 20px;
+        margin-top: 0vh;
+        background-color: pink;
+        height: fit-content;
         h1 {
                 font-size: 34pt;
                 line-height: 1;
@@ -26,29 +29,6 @@
 
         p {
             font-size: 20pt;
-        }
-    }
-
-    
-
-.landingPageButtons {
-    display: flex;
-    justify-content: center;
-
-    a {
-        margin: 10px;
-        padding: 20px 20px;
-        font-size: 18pt;
-        background-color: #012e3f;
-        color: white;
-        border-radius: 15px;
-        text-decoration: none;
-        font-family: "Lexend", serif;
-    }
-
-    a:hover {
-        background-color: white;
-        color: #012e3f;
         }
     }
 }

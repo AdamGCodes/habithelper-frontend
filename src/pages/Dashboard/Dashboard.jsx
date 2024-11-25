@@ -12,6 +12,8 @@ import { index } from '../../services/timerService'
 
 //!---Componants
 import TimerWidgit from "../../components/TimerWidgit/TimerWidgit";
+import TimerIndex from '../../components/TimerIndex/TimerIndex';
+import TimerDisplay from '../../components/TimerDisplay/TimerDisplay';
 
 
 const Dashboard = ({user}) => {
@@ -41,13 +43,25 @@ const Dashboard = ({user}) => {
 
 
     return (
-        <main className={styles.dashboard}>
+        <main>
             <section className={styles.dashboardSection}>
                 <div className={styles.userDiv}>
                     <h2>Welcome {user.first_name}</h2>
                 </div>
                 <div className={styles.timersDiv}>
                     <h2>Your Timers</h2>
+                    <ul>
+                        {timers.length > 0 ? (
+                            timers.map((timer) => (
+                                <li key={timer.id}>
+                                    <h2>{(timer.name)}</h2>
+                                    <TimerWidgit startDate={(timer.started)} />
+                                </li>
+                            ))
+                        ) : (
+                            <p>No timers found.</p>
+                        )}
+                    </ul>
                 </div>
                 <div className={styles.journalsDiv}>
                     <h2>Your Journals</h2>

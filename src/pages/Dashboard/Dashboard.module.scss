@@ -1,68 +1,61 @@
-// main{
-//     display: flex;
-//     flex-wrap: wrap;
-//     flex-direction: column;
-//     margin-top: 120px;
-    
-//     .dashboardSection{
-//         margin-top: 320px;
-//         display: flex;
-//         flex-direction: row;
-//         flex-wrap: wrap;
-//         gap: 30px;
-//         width: 100%;
-//         div{
-//             width: 100%;
-//             display: flex;
-//             justify-content: center;
-//             padding: 20px;
-//             background-color: rgba(2550, 255, 255, 0.70);
-//             color: #012e3f;
-//             border-radius: 15px;
-//             text-align: center;
-//             filter: drop-shadow(5px 5px 5px black);
-//         }
-//         .userDiv{
-//             width: 75%;
-//         }
-//         .timersDiv {
-//             width: 300px;
-//         }
-//         .journalsDiv {
-//             width: 300px;
-//         }
-//         .helpersDiv {
-//             width: 300px;
-//         }
-//     }
-// }
+    .dashboardSection{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+        div{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            background-color: rgba(2550, 255, 255, 0.70);
+            color: #012e3f;
+            border-radius: 15px;
+            text-align: center;
+            filter: drop-shadow(5px 5px 5px black);
+            h2 {
+                    margin-bottom: 10px;
+                    font-size: 16pt;
+                }
+        }
+        .userDiv{
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            
+        }
+        .timersDiv {
+            
+            
+            ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li{
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    padding: 0px;
+                    border: solid #012e3f 3px;
+                    border-radius: 50px;
+            }
+            .timersSubDiv{
+                display: flex;
+                position: absolute;
+                left: 0;
+                width: 50px;
+            }
 
-
-// .dashboard{
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     margin-top: 250px;
-    
-//     .user{
-//         width: 90%;
-//     }
-//     section{
-//         display: flex;
-//         flex-wrap: wrap;
-//         margin: 10px;
-//         width: 200px;
-//         padding: none;
-//         div {
-//                 margin-left: none;
-//                 ul {
-//                     margin-left: none;
-//                     li {
-//                         margin-left: none;
-//                         list-style: none;
-//                         font-size: 10pt;
-//                     }
-//                 }
-//             }
-//         }
-//     }
+            }
+        
+        .journalsDiv {
+            width: 300px;
+        }
+        .helpersDiv {
+            width: 300px;
+        }
+    }}

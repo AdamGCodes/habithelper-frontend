@@ -56,7 +56,7 @@ const JournalForm = () => {
     }
 
     return (
-        <main className={styles.journalMain}>
+        <main>
             <section className={styles.journalFormSection}>
                 <form onSubmit={handleSubmit}>
                     <h1>{ journalId ? "Update your journal entry." : "What's on your mind?"}</h1>

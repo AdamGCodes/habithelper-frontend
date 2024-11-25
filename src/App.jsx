@@ -42,34 +42,35 @@ const handleSignOut = () => {
   
   return(
     <>
-      <NavBar user={user} handleSignOut={handleSignOut} />
       <main>
-        
-        <Routes>
-          { user 
-            ?(
-              <>
-                <Route path="/" element={<Dashboard user={user} />} />
-                <Route path="/timers/" element={<><Timer/> </>} />
-                <Route path="/timers/:timersId" element={<><Timer /> </>} />
-                
+        <NavBar user={user} handleSignOut={handleSignOut} />
+        <section className={styles.appSection}>
+          <Routes>
+            { user 
+              ?(
+                <>
+                  <Route path="/" element={<Dashboard user={user} />} />
+                  <Route path="/timers/" element={<><Timer/> </>} />
+                  <Route path="/timers/:timersId" element={<><Timer /> </>} />
+                  
 
-                <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
-                <Route path="/journals/" element={<Journal />} />
-                <Route path="/journals/:journalId" element={<JournalShow />} />
-                <Route path="/journals/:journalId/edit" element={<JournalForm />} />
-              </>
-            )
-            : (
-              <>
-                <Route path="/" element={<Landing />} />
-                <Route path="/sign-up/" element={<SignUp setUser={setUser} />} />
-                <Route path="/sign-in/" element={<SignIn setUser={setUser} />} />
-              </>
-            )
-          }
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
+                  <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
+                  <Route path="/journals/" element={<Journal />} />
+                  <Route path="/journals/:journalId" element={<JournalShow />} />
+                  <Route path="/journals/:journalId/edit" element={<JournalForm />} />
+                </>
+              )
+              : (
+                <>
+                  <Route path="/" element={<Landing />} />
+                  <Route path="/sign-up/" element={<SignUp setUser={setUser} />} />
+                  <Route path="/sign-in/" element={<SignIn setUser={setUser} />} />
+                </>
+              )
+            }
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Routes>
+        </section>
         <div className='footnav'>
 
         </div>

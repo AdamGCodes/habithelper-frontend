@@ -1,15 +1,20 @@
 body{
+    display: flex;
+    flex-direction: column;
     background-image: url("public/images/wooden-dock-lake-image.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     height: 100vh;
     main{
         display: flex;
         flex-direction: column;
-        margin-top: 15vh;
         justify-content: center;
         align-items: center;
         color: #012e3f;
+        .appSection{
+            margin-top: 28vh;
+        }
         h1{
             font-family: "Noto Sans Display", serif;
         }

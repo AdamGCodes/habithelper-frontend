@@ -12,9 +12,7 @@ import styles from './Landing.module.scss'
 
 
 const Landing = () => {
-
     return (
-        
         <main>
             <section className={styles.landingSection}>
                 <h1>Welcome To HabitHelper</h1>

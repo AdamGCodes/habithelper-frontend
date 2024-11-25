@@ -16,12 +16,12 @@ import { useCounter } from "../../hooks/useCounter";
 
 const ShowCounter = ({ days, hours, minutes, seconds}) => {
     return(
-        <div className={styles.showCounter}>
-            <TimerDisplay value={ days } type={ 'D' }/>
-            <TimerDisplay value={ hours } type={ 'H' } />
-            <TimerDisplay value={ minutes } type={ 'M' } />
-            <TimerDisplay value={ seconds } type={'S'} />
-        </div>
+        <>
+            <TimerDisplay value={days} type={'D'} />
+            <TimerDisplay value={hours} type={'H'} />
+            <TimerDisplay value={minutes} type={'M'} />
+            <TimerDisplay value={seconds} type={'S'} />
+        </>
     );
 };
 
@@ -36,12 +36,15 @@ const TimerWidgit = ({ startDate }) => {
     //return (One week award)  
     //} 
     return (
-        <ShowCounter
-        days = { days } 
-        hours = { hours }
-        minutes = { minutes }
-        seconds = { seconds }
-        />
+        <main>
+            <section className={styles.timerWidgitSection}>
+                <ShowCounter
+                days = { days } 
+                hours = { hours }
+                minutes = { minutes }
+                seconds = { seconds }  />
+            </section>
+        </main >
     );
 
 }

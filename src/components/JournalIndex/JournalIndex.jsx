@@ -40,7 +40,6 @@ const JournalIndex = () => {
     return (
         <main>
             <section className={styles.journalIndexSection}>
-                
                 <ul>
                     <h1>Your Journal Entries</h1>
                     {journals.map((journal) => (

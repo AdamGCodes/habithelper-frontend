@@ -19,6 +19,9 @@ const SignIn = ({ setUser }) => {
         password: ''
     })
 
+    //Error State
+    const [errors, setErrors] = useState("")
+
     //!---Location variables
     const navigate = useNavigate()
 
@@ -31,15 +34,28 @@ const SignIn = ({ setUser }) => {
         e.preventDefault()
         try{
             const { user } = await signin(formData)
-            setUser(user)
-            navigate('/')
+            setUser(user);
+            navigate('/');
         } catch (error) {
-            console.log(error)
+            console.log('Error:', error);
+            console.log('Error response', error.response);
+
+            const serverErrors = error.response?.data || { errorMessage: "An unexpted error occured." };
+            
+            if (serverErrors){
+                setErrors({ general: serverErrors.details });
+            }else if (serverErrors.errorMessage) {
+                setErrors({general:serverErrors.errorMessage});
+            } else {
+                setErrors({general: "An unknown error occurred. Please try agin."})
+            }
+            console.log('Setting errors:', serverErrors);
         }
+        
         
     }
     return (
-        <main className={styles.signInMain}>
+        <main>
             <section className={styles.signInSection}>
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
@@ -61,6 +77,7 @@ const SignIn = ({ setUser }) => {
                             value={formData.password}
                             onChange={handleChange} />
                     </div>
+                    <small>{errors.general && <p className={styles.error}>{errors.general}</p>}</small>
                     <div>
                         <button>Sign In</button>
                         <Link to="/">

@@ -1,5 +1,14 @@
-// .showCounter{
-//     display: flex;
-//     justify-content: center;
-//     gap: 25px;
-// }
+.timerWidgitSection{
+    font-family: "Lexend", serif;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    line-height: 0;
+    p{
+        font-size: 18pt;
+        line-height: 0;
+    }
+    small{
+        line-height: 0;
+    }
+}

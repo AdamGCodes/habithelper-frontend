@@ -25,7 +25,7 @@ const SignUp = ({ setUser }) => {
     })
     
     //Error State
-    const [errors, setErrors] = useState('')
+    const [errors, setErrors] = useState({})
 
     //!---Location variables
     const navigate = useNavigate()
@@ -44,7 +44,9 @@ const SignUp = ({ setUser }) => {
             setUser(user) // set user to state
             navigate('/') // take user back to dashboard
         }catch (error) {
-            console.log(error)
+            console.log('Error:', error);
+            console.log('Error response', error.response)
+            setErrors(error.response?.data || { errorMessage: "An unexpedted error occured"});
         }
     }
 
@@ -62,6 +64,7 @@ const SignUp = ({ setUser }) => {
                         value={formData.username}
                         onChange={handleChange}/>
                     </div>
+                    <small>{errors.username && <p className={styles.error}>{errors.username[0]}</p>}</small>
                     <div>
                         <label htmlFor="email">Email:</label>
                         <input
@@ -71,6 +74,7 @@ const SignUp = ({ setUser }) => {
                             value={formData.email}
                             onChange={handleChange} />
                     </div>
+                    <small>{errors.email && <p className={styles.error}>{errors.email[0]}</p>}</small>
                     <div>
                         <label htmlFor="password">Password:</label>
                         <input
@@ -80,6 +84,7 @@ const SignUp = ({ setUser }) => {
                             value={formData.password}
                             onChange={handleChange} />
                     </div>
+                    <small>{errors.password && <p className={styles.error}>{errors.password[0]}</p>}</small>
                     <div>
                         <label htmlFor="password_confirmation">Confirm Password:</label>
                         <input
@@ -89,6 +94,7 @@ const SignUp = ({ setUser }) => {
                             value={formData.password_confirmation}
                             onChange={handleChange} />
                     </div>
+                    <small>{errors.password_confirmation && <p className={styles.error}>{errors.password_confirmation[0]}</p>}</small>
                     <div>
                         <label htmlFor="first_name">First name:</label>
                         <input
@@ -99,7 +105,7 @@ const SignUp = ({ setUser }) => {
                             onChange={handleChange} />
                     </div>
                     <div>
-                        <label htmlFor="last_name">First name:</label>
+                        <label htmlFor="last_name">Last name:</label>
                         <input
                             type="text"
                             id="last_name"
@@ -107,13 +113,14 @@ const SignUp = ({ setUser }) => {
                             value={formData.last_name}
                             onChange={handleChange} />
                     </div>
-                    <Errors message = { errors }/>
                     <div>
                         <button>Sign Up</button>
                         <Link to="/">
                             <button>Cancel</button>
                         </Link>
                     </div>
+                    {/* <Errors message={errors} /> */}
+                    {errors.errorMessage && <p className={styles.error}>{errors.errorMessage}</p>}
                 </form>
             </section>
         </main>
