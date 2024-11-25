@@ -13,13 +13,20 @@ import styles from './Journal.module.scss'
 //!--- Componants
 import JournalIndex from '../../components/JournalIndex/JournalIndex.jsx'
 import JournalShow from '../../components/JournalShow/JournalShow.jsx'
+import JournalForm from '../../components/JournalForm/JournalForm.jsx'
+
 const Journal = ({ user }) => {
 
     const [journals, setJournals] = useState([])
 
     return (
         <main>
-            <JournalIndex/>
+            <section className={styles.journalSection}>
+                <div className={styles.journalDiv}>
+                    <JournalForm/>
+                    <JournalIndex />
+                </div>
+            </section>
         </main>
     )
 };

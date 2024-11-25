@@ -12,7 +12,7 @@ const NavBar = ({ user, handleSignOut }) => {
     return(
         <>
         
-        <div className={styles.navContainer}>
+        <section className={styles.navSection}>
             
             <h1>HabitHelper</h1>
             <nav>
@@ -46,7 +46,7 @@ const NavBar = ({ user, handleSignOut }) => {
 
                 </ul>
             </nav>
-        </div>
+        </section>
         </>
     )
 }

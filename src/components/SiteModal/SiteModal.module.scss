@@ -1,32 +1,32 @@
-.modalContainer{
-    position: fixed;
-    left: 0;
-    top: 0;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.50);
-    z-index: 2;
-    .modal{
-        padding: 20px;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        top: 300px;
-        background-color: #efe;
-        border-radius: 20px;
-        color: #012e3f;
-        .close{
-            display: flex;
-            position: absolute;
-            font-size: 50pt;
-            cursor: pointer;
-            margin-top: 0;
-            margin-left: 20px;
-            line-height: 1;
-        }
-    }
-}
+// .modalContainer{
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     align-items: center;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     background-color: rgba(0, 0, 0, 0.50);
+//     z-index: 2;
+//     .modal{
+//         padding: 20px;
+//         position: absolute;
+//         display: flex;
+//         flex-direction: column;
+//         top: 300px;
+//         background-color: #efe;
+//         border-radius: 20px;
+//         color: #012e3f;
+//         .close{
+//             display: flex;
+//             position: absolute;
+//             font-size: 50pt;
+//             cursor: pointer;
+//             margin-top: 0;
+//             margin-left: 20px;
+//             line-height: 1;
+//         }
+//     }
+// }
     

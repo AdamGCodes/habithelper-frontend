@@ -1,52 +1,46 @@
 main{
+.landingSection{
+    margin-top: 0px;
     display: flex;
-    text-align: center;
+    flex-direction: column;
     justify-content: center;
-    .landingSection{
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(2550,255,255,0.70);
+    color: #012e3f;
+    border-radius: 15px;
+    width: 90%;
+    filter: drop-shadow(5px 5px 5px black);
+    
+    h1{
+        font-size: 34pt;
+        line-height: 1;
+        margin: 10px;
+    }
+    h2 { 
+        font-size: 24pt;
+        margin: 10px;
+    }
+    p{
+        font-size: 20pt;
+    }
+    .landingPageButtons {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        margin-top: 250px;
-        margin-left: 100px;
-        width: 80%;
-        padding: 30px;
-        background-color: rgba(2550,255,255,0.70);
-        color: #012e3f;
-        border-radius: 15px;
-        filter: drop-shadow(5px 5px 5px black);
-        h1{
-            margin-top: 30px;
-            font-size: 30pt;
-            line-height: 1.25;
-        }
-
-        h2{
-            margin: 10px 0px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-size: 20pt;
-            line-height: 1.5;
+        a{
+            margin: 10px;
+            padding: 20px 20px;
+            font-size: 18pt;
+            background-color: #012e3f;
+            color: white;
+            border-radius: 15px;
+            text-decoration: none;
+            font-family: "Lexend", serif;
+            }
+        a:hover{
+            background-color: white;
             color: #012e3f;
-        }
-        .landingPageButtons {
-            display: flex;
-            justify-content: center;
-            a{
-                margin: 10px;
-                padding: 20px 20px;
-                font-size: 18pt;
-                background-color: #1F6E8D;
-                color: white;
-                border-radius: 15px;
-                text-decoration: none;
-            }
-            a:hover{
-                background-color: white;
-                color: #1F6E8D;
             }
         }
-
     }
 }

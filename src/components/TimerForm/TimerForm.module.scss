@@ -1,38 +1,38 @@
-.timeFormMain{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: transparent;
-    width: fit-content;
-    height: fit-content;
-    margin: 0px;
-    padding: 0px;
-    section{
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 100px;
-        line-height: 1;
-        width: 70vw;
-        background-color: transparent;
-        margin-top: 0;
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            h1 {
-                margin: 20px auto;
-            }
-            label {
-                filter: none;
-            }
+// .timeFormMain{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: flex-start;
+//     background-color: transparent;
+//     width: fit-content;
+//     height: fit-content;
+//     margin: 0px;
+//     padding: 0px;
+//     section{
+//         display: flex;
+//         justify-content: flex-start;
+//         margin-top: 100px;
+//         line-height: 1;
+//         width: 70vw;
+//         background-color: transparent;
+//         margin-top: 0;
+//         form {
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: center;
+//             align-items: center;
+//             gap: 10px;
+//             h1 {
+//                 margin: 20px auto;
+//             }
+//             label {
+//                 filter: none;
+//             }
 
-            input {
-                width: 75%;
-            }
-        }
-    }
+//             input {
+//                 width: 75%;
+//             }
+//         }
+//     }
         
-}
+// }

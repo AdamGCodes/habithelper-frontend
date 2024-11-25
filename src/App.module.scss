@@ -1,44 +1,23 @@
 body{
-    display: flex;
-    justify-content: center;
+    background-image: url("public/images/wooden-dock-lake-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
-}
-
-button{
-    margin: 10px;
-    padding: 5px 15px;
-    font-size: 18pt;
-    background-color: #1F6E8D;
-    color: white;
-    border-radius: 10px;
-}
-
-button:hover{
-    background-color: white;
-    color: #1F6E8D;
-}
-
-main{
-    display: flex;
-    max-width: 90vw;
-    margin: 0px;
-    section{
-        width: 100vw;
+    main{
         display: flex;
         flex-direction: column;
+        margin-top: 15vh;
         justify-content: center;
         align-items: center;
-        margin: 0px;
-        
-        form{
-            width: 100%;
-            label{
-                font-size: 18pt;
-            }
-            input{
-                font-size: 18pt;
-            }
-            
+        color: #012e3f;
+        h1{
+            font-family: "Noto Sans Display", serif;
         }
-    }
+        h2{
+            font-family: "Lexend", serif;
+        }
+        p{
+            font-family: "Lexend", serif;
+        }
+        }
 }

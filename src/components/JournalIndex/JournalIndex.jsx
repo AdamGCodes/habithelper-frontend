@@ -11,7 +11,7 @@ import { index } from '../../services/journalService.js'
 
 //!--- Componants
 import FullCalendar from '../CalendarView/CalendarView.jsx';
-import JournalForm from '../JournalForm/JournalForm.jsx';
+
 
 const JournalIndex = () => {
 
@@ -40,7 +40,7 @@ const JournalIndex = () => {
     return (
         <main>
             <section className={styles.journalIndexSection}>
-                <JournalForm></JournalForm>
+                
                 <ul>
                     <h1>Your Journal Entries</h1>
                     {journals.map((journal) => (
