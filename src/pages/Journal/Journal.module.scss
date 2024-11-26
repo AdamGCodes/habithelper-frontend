@@ -5,21 +5,11 @@
     background-color: rgba(2550, 255, 255, 0.70);
     color: #012e3f;
     border-radius: 15px;
-    width: 90%;
+    padding: 20px;
     filter: drop-shadow(5px 5px 5px black);
-    background-color: purple;
-    .journalDiv{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 0px 20px 0px 20px;
-        margin-top: 0vh;
-        background-color: pink;
-        height: fit-content;
         h1 {
-                font-size: 34pt;
-                line-height: 1;
-                margin-top: 0px;
+                margin: 10px;
+                font-size: 20pt;
             }
 
         h2 {
@@ -28,7 +18,7 @@
         }
 
         p {
-            font-size: 20pt;
+            font-size: 16pt;
         }
     }
-}
+

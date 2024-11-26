@@ -48,7 +48,7 @@ const JournalForm = () => {
             } else {
                 res = await create(formData) 
             }
-            navigate(`/journals/${res.data.id}`)
+            // navigate(`/journals/${res.data.id}`)
         } catch(error){
             console.log(error.response.data)
             setErrors(error.response.data)
@@ -59,13 +59,13 @@ const JournalForm = () => {
         <main>
             <section className={styles.journalFormSection}>
                 <form onSubmit={handleSubmit}>
-                    <h1>{ journalId ? "Update your journal entry." : "What's on your mind?"}</h1>
-                    <label htmlFor="Text">Take take some time to think about your day connect the events of the day to how they made you feel? What went well, what can you do better tomorrow. And what one thing are you greatful for today?</label>
+                    
+                    <label htmlFor="Text"><h1>{journalId ? "Update your journal entry." : "What's on your mind?"}</h1></label>
                     <textarea 
                     name="text"
                     id="text"
                     rows={4}
-                    cols={50}
+                    cols={38}
                     value={ formData.text }
                     onChange={ handleChange }
                     />

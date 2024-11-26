@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-
+import { Link } from 'react-router-dom'
+import { format } from 'date-fns'
 
 
 
@@ -14,9 +14,11 @@ import { index } from '../../services/timerService'
 import TimerWidgit from "../../components/TimerWidgit/TimerWidgit";
 import TimerIndex from '../../components/TimerIndex/TimerIndex';
 import TimerDisplay from '../../components/TimerDisplay/TimerDisplay';
+import JournalIndex from '../../components/JournalIndex/JournalIndex';
+import JournalForm from '../../components/JournalForm/JournalForm';
 
 
-const Dashboard = ({user}) => {
+const Dashboard = ({ user, journalsToDisplay }) => {
 
     const [timers, setTimers] = useState([])
     const [journals, setJournals] = useState([]);
@@ -38,6 +40,24 @@ const Dashboard = ({user}) => {
         }
         fetchTimers()
     }, [])
+
+    useEffect(() => {
+        const fetchJournals = async () => {
+            try {
+                const { data } = await index()
+                setJournals(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchJournals()
+        console.log(journals)
+    }, [])
+
+    //!---Handle formatting dates
+    const formatDate = (dateString) => {
+        return "Entry for: " + format(new Date(dateString), "do MMM yy") //@ h:mm a");
+    };
 
     // if (loading) return <div>Loading...</div>;
 
@@ -65,6 +85,8 @@ const Dashboard = ({user}) => {
                 </div>
                 <div className={styles.journalsDiv}>
                     <h2>Your Journals</h2>
+                    <JournalForm/>
+                    <JournalIndex limit={3}/>
                 </div>
                 <div className={styles.helpersDiv}>
                     <h2>HabitHelpers</h2>

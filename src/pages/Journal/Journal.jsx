@@ -22,10 +22,8 @@ const Journal = ({ user }) => {
     return (
         <main>
             <section className={styles.journalSection}>
-                <div className={styles.journalDiv}>
                     <JournalForm/>
-                    <JournalIndex />
-                </div>
+                    <JournalIndex limit = {null} />
             </section>
         </main>
     )
