@@ -54,6 +54,7 @@ const TimerForm = ({timers}) => {
                 res = await create(formData)
             }
             navigate(`/timers/${res.data.id}`)
+
         } catch (error) {
             console.log(error.response.data)
             setErrors(error.response.data)

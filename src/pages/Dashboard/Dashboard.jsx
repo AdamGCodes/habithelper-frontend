@@ -22,7 +22,7 @@ const Dashboard = ({ user, journalsToDisplay }) => {
 
     const [timers, setTimers] = useState([])
     const [journals, setJournals] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const startDate = new Date('2024-11-15T15:24:30Z');
     const Now_IN_MS = new Date().getTime();
@@ -59,7 +59,12 @@ const Dashboard = ({ user, journalsToDisplay }) => {
         return "Entry for: " + format(new Date(dateString), "do MMM yy") //@ h:mm a");
     };
 
-    // if (loading) return <div>Loading...</div>;
+    // if (!journals) {
+    //     return <p>Loading journal...</p>;
+    // }
+    // if (!timers) {
+    //     return <p>Loading journal...</p>;
+    // }
 
 
     return (

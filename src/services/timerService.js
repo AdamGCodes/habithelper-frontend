@@ -14,14 +14,14 @@ export const show = (timerId) => {
 }
 
 //!---Create
-export const create = (formData) => {
-    return axios.post(`${BASE_URL}/`, formData)
+export const create = async (formData) => {
+    return await axios.post(`${BASE_URL}/`, formData)
 }
 
 //!---Update
-export const update = (timerId, formData) => {
+export const update = async (timerId, formData) => {
     //Path = /timer/:timerId
-    return axios.put(`${BASE_URL}/${timerId}/`, formData)
+    return await axios.put(`${BASE_URL}/${timerId}/`, formData)
 }
 
 //!---Delete

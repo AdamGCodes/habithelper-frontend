@@ -48,10 +48,18 @@ const JournalForm = () => {
             } else {
                 res = await create(formData) 
             }
-            // navigate(`/journals/${res.data.id}`)
+            console.log('Response:', res)
+            console.log('Response Data', res.data);
+            setFormData({text: '' });
+            
+            setJournals((prevTimers) =>
+                prevTimers.map((timer) =>
+                    timer.id === id ? { ...timer, ...updatedTimer } : timer
+                )
+            );
         } catch(error){
             console.log(error.response.data)
-            setErrors(error.response.data)
+            setErrors(error.response.data || {});
         }
     }
 

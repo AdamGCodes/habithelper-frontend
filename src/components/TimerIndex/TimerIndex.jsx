@@ -64,8 +64,7 @@ const TimerIndex = () => {
     const handleRestartTimer = async (id) => {
         try {
             console.log("Restarting timer id:", id)
-            
-            // const formData = { started: Now_IN_MS };
+
             const formData = { started: new Date().toISOString(),}
             const { data: updatedTimer } = await update(id, formData);
 

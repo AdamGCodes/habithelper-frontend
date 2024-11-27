@@ -14,14 +14,14 @@ export const show = (journalId) => {
 }
 
 //!---Create
-export const create = (formData) => {
-    return axios.post(`${BASE_URL}/`, formData)
+export const create = async (formData) => {
+    return await axios.post(`${BASE_URL}/`, formData)
 }
 
 //!---Update
-export const update = (journalId, formData) => {
+export const update = async (journalId, formData) => {
     //Path = /journals/:journalId
-    return axios.put(`${BASE_URL}/${journalId}/`, formData)
+    return await axios.put(`${BASE_URL}/${journalId}/`, formData)
 }
 
 //!---Delete
