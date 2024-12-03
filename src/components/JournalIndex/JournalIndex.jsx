@@ -13,45 +13,48 @@ import { index } from '../../services/journalService.js'
 import FullCalendar from '../CalendarView/CalendarView.jsx';
 
 
-const JournalIndex = ({ limit }) => {
+const JournalIndex = ({ journals = [], limit }) => {
+    // = [] ensuring that journals is always an array
+    console.log("Revieved journals in JournalIndex:", journals)
 
-    //!---States
-    const [journals, setJournals] = useState([])
+    //!---Set props for how many entries to show
+    const journalsToShow = limit ? journals.slice(-limit) : journals;
     
 
-    useEffect(() => {
-        const fetchJournals = async () => {
-            try {
-                const { data } = await index()
-                setJournals(data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchJournals()
-        console.log(journals)
-    }, [])
+    // useEffect(() => {
+    //     const fetchJournals = async () => {
+    //         try {
+    //             const { data } = await index()
+    //             setJournals(data)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchJournals()
+    //     console.log(journals)
+    // }, [])
     
 
     //!---Handle formatting dates
     const formatDate = (dateString) => {
         return "Entry for: " + format(new Date(dateString), "do MMM yy") //@ h:mm a");
     };
-    
-    //!---Set props for how many entries to show
-    const journalsToShow = limit ? journals.slice(-limit) : journals;
 
     return (
         <main>
             <section className={styles.journalIndexSection}>
                 <ul>
-                    {journalsToShow.reverse().map((journal) => (
-                        <Link key={journal.id} to={`/journals/${journal.id}/`}>
-                            <li>
-                                <span>{formatDate(journal.created_at)}</span>
+                    {journalsToShow.length > 0 ? (
+                        journalsToShow.reverse().map((journal) => (    
+                            <li key={journal.id} >
+                                <Link to={`/journals/${journal.id}/`}>
+                                    <span>{formatDate(journal.created_at)}</span>
+                                </Link>
                             </li>
-                        </Link>
-                    ))}
+                        ))
+                    ) : (
+                        <p>No journal entries found.</p>
+                    )}
                 </ul>
             </section>
         </main>
