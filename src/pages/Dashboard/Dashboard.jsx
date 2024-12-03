@@ -8,7 +8,7 @@ import { format } from 'date-fns'
 import styles from './Dashboard.module.scss'
 
 //!---Services
-import { index } from '../../services/timerService'
+import { index as fetchJournalsFromAPI } from '../../services/timerService'
 
 //!---Componants
 import TimerWidgit from "../../components/TimerWidgit/TimerWidgit";
@@ -44,15 +44,16 @@ const Dashboard = ({ user, journalsToDisplay }) => {
     useEffect(() => {
         const fetchJournals = async () => {
             try {
-                const { data } = await index()
+                const { data } = await fetchJournalsFromAPI();
+                console.log("Fetched journals:", data);
                 setJournals(data)
             } catch (error) {
                 console.log(error)
             }
-        }
+        };
         fetchJournals()
         console.log(journals)
-    }, [])
+    }, []);
 
     //!---Handle formatting dates
     const formatDate = (dateString) => {
@@ -65,8 +66,8 @@ const Dashboard = ({ user, journalsToDisplay }) => {
     // if (!timers) {
     //     return <p>Loading journal...</p>;
     // }
-
-
+    
+    console.log("Dashboard journals state before passing", journals)
     return (
         <main>
             <section className={styles.dashboardSection}>
@@ -89,9 +90,11 @@ const Dashboard = ({ user, journalsToDisplay }) => {
                     </ul>
                 </div>
                 <div className={styles.journalsDiv}>
+                    
                     <h2>Your Journals</h2>
-                    <JournalForm/>
-                    <JournalIndex limit={3}/>
+                    <JournalForm setJournals = {setJournals}/>
+                    
+                    <JournalIndex limit={3} journals={journals}/>
                 </div>
                 <div className={styles.helpersDiv}>
                     <h2>HabitHelpers</h2>

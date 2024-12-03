@@ -9,7 +9,7 @@ import styles from './JournalForm.module.scss'
 import { create, show, update } from '../../services/journalService'
 
 
-const JournalForm = () => {
+const JournalForm = ( { setJournals }) => {
     //!---States
     const [formData, setFormData] = useState({
         text: '',
@@ -18,21 +18,19 @@ const JournalForm = () => {
     const [errors, setErrors] = useState({})
 
     //!---Location Variables
-
-    const navigate = useNavigate()
     const { journalId } = useParams()
 
-    useEffect(() => {
-        const fetchJournal = async () => {
-            try {
-                const { data } = await show(journalId)
-                setFormData(data)
-            } catch(error){
-                console.log(error)
-            }
-        }
-        if (journalId) fetchJournal()
-    }, [journalId])
+    // useEffect(() => {
+    //     const fetchJournal = async () => {
+    //         try {
+    //             const { data } = await show(journalId)
+    //             setFormData(data)
+    //         } catch(error){
+    //             console.log(error)
+    //         }
+    //     }
+    //     if (journalId) fetchJournal()
+    // }, [journalId])
 
     //!---Handlers
     const handleChange = (e) => {
@@ -42,21 +40,21 @@ const JournalForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            let res
-            if (journalId) {
-                res = await update(journalId, formData)
+            const response = journalId
+            ? await update(journalId, formData)
+            : await create(formData);
+
+            if (!journalId) {
+                setJournals((prevJournals) => [...prevJournals, response.data])
             } else {
-                res = await create(formData) 
+                setJournals((prevJournals)=>
+                    prevJournals.map((journal) =>
+                        journal.id === journalId ? response.data : journal
+                    )
+                );
             }
-            console.log('Response:', res)
-            console.log('Response Data', res.data);
             setFormData({text: '' });
-            
-            setJournals((prevTimers) =>
-                prevTimers.map((timer) =>
-                    timer.id === id ? { ...timer, ...updatedTimer } : timer
-                )
-            );
+        
         } catch(error){
             console.log(error.response.data)
             setErrors(error.response.data || {});
@@ -75,12 +73,11 @@ const JournalForm = () => {
                     rows={4}
                     cols={38}
                     value={ formData.text }
-                    onChange={ handleChange }
+                    onChange={ (e) =>
+                        setFormData({...formData, [e.target.name]: e.target.value})
+                    }
                     />
                     {errors.text && <p className='error'>{errors.text.message}</p>}
-                
-                    {/* Form Error Message */}
-                    {errors.errorMessage && <p className="error">{errors.errorMessage}</p>}
 
                     <button type='submit'>{journalId ? 'Update' : 'Submit'} Journal Entry</button>
                 </form>
