@@ -8,7 +8,7 @@ import { format } from 'date-fns'
 import styles from './Dashboard.module.scss'
 
 //!---Services
-import { index as fetchJournalsFromAPI } from '../../services/timerService'
+import { index } from '../../services/timerService'
 
 //!---Componants
 import TimerWidgit from "../../components/TimerWidgit/TimerWidgit";
