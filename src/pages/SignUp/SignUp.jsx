@@ -46,7 +46,12 @@ const SignUp = ({ setUser }) => {
         }catch (error) {
             console.log('Error:', error);
             console.log('Error response', error.response)
-            setErrors(error.response?.data || { errorMessage: "An unexpedted error occured"});
+            const responseErrors = error.response?.data
+            if (responseErrors) {
+                setErrors(responseErrors)
+            } else {
+                setErrors({ errorMessage: "An unexpected error occurred" })
+            }
         }
     }
 
@@ -55,7 +60,7 @@ const SignUp = ({ setUser }) => {
             <section className={styles.signUpSection}>
                 <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className={styles.formField}>
                         <label htmlFor="username">Username:</label>
                         <input 
                         type="text"
@@ -64,8 +69,10 @@ const SignUp = ({ setUser }) => {
                         value={formData.username}
                         onChange={handleChange}/>
                     </div>
-                    <small>{errors.username && <p className={styles.error}>{errors.username[0]}</p>}</small>
-                    <div>
+                    {errors.username && (
+                        <small className={styles.error}>{errors.username[0]}</small>
+                    )}
+                    <div className={styles.formField}>
                         <label htmlFor="email">Email:</label>
                         <input
                             type="text"
@@ -74,8 +81,10 @@ const SignUp = ({ setUser }) => {
                             value={formData.email}
                             onChange={handleChange} />
                     </div>
-                    <small>{errors.email && <p className={styles.error}>{errors.email[0]}</p>}</small>
-                    <div>
+                    {errors.email && (
+                        <small className={styles.error}>{errors.email[0]}</small>
+                    )}
+                    <div className={styles.formField}>
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
@@ -84,8 +93,10 @@ const SignUp = ({ setUser }) => {
                             value={formData.password}
                             onChange={handleChange} />
                     </div>
-                    <small>{errors.password && <p className={styles.error}>{errors.password[0]}</p>}</small>
-                    <div>
+                    {errors.password && (
+                        <small className={styles.error}>{errors.password[0]}</small>
+                    )}
+                    <div className={styles.formField}>
                         <label htmlFor="password_confirmation">Confirm Password:</label>
                         <input
                             type="password"
@@ -94,8 +105,10 @@ const SignUp = ({ setUser }) => {
                             value={formData.password_confirmation}
                             onChange={handleChange} />
                     </div>
-                    <small>{errors.password_confirmation && <p className={styles.error}>{errors.password_confirmation[0]}</p>}</small>
-                    <div>
+                    {errors.password_confirmation && (
+                        <small className={styles.error}>{errors.password_confirmation[0]}</small>
+                    )}
+                    <div className={styles.formField}>
                         <label htmlFor="first_name">First name:</label>
                         <input
                             type="text"
@@ -104,7 +117,7 @@ const SignUp = ({ setUser }) => {
                             value={formData.first_name}
                             onChange={handleChange} />
                     </div>
-                    <div>
+                    <div className={styles.formField}>
                         <label htmlFor="last_name">Last name:</label>
                         <input
                             type="text"
@@ -113,14 +126,13 @@ const SignUp = ({ setUser }) => {
                             value={formData.last_name}
                             onChange={handleChange} />
                     </div>
-                    <div>
-                        <button>Sign Up</button>
+                    <div className={styles.buttonGroup}>
+                        <button type="submit">Sign Up</button>
                         <Link to="/">
-                            <button>Cancel</button>
+                            <button type="button">Cancel</button>
                         </Link>
                     </div>
-                    {/* <Errors message={errors} /> */}
-                    {errors.errorMessage && <p className={styles.error}>{errors.errorMessage}</p>}
+                    <Errors messages={errors} />
                 </form>
             </section>
         </main>
