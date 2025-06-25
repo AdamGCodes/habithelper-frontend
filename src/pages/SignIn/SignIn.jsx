@@ -1,31 +1,31 @@
-//!---Modules/Libraries
+// ─── Modules/Libraries ─────────────────────────────────────────────
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 
-//!---Styles
+// ─── Styles ─────────────────────────────────────────────
+
 import styles from './SignIn.module.scss'
 
-//!---Services
+// ─── Services ─────────────────────────────────────────────
 import { signin } from '../../services/userService'
 
-//!---Componants
 
 
 const SignIn = ({ setUser }) => {
 
-    //!--- State
     const [formData, setFormData] = useState({
         username_or_email: '',
         password: ''
     })
 
-    //Error State
+
     const [errors, setErrors] = useState("")
 
-    //!---Location variables
+
     const navigate = useNavigate()
 
-    //!---Event Handdlers
+// ─── Handlers ─────────────────────────────────────────────
+
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value })
     }
@@ -37,56 +37,59 @@ const SignIn = ({ setUser }) => {
             setUser(user);
             navigate('/');
         } catch (error) {
-            console.log('Error:', error);
-            console.log('Error response', error.response);
+            const rawMessage =
+                error.response?.data?.detail || // DRF default
+                error.response?.data?.errorMessage || // fallback key if custom
+                "An unknown error occurred. Please try again.";
 
-            const serverErrors = error.response?.data || { errorMessage: "An unexpted error occured." };
-            
-            if (serverErrors){
-                setErrors({ general: serverErrors.details });
-            }else if (serverErrors.errorMessage) {
-                setErrors({general:serverErrors.errorMessage});
-            } else {
-                setErrors({general: "An unknown error occurred. Please try agin."})
-            }
-            console.log('Setting errors:', serverErrors);
+            const message = //Translating secure backend response to something more user friendly
+                rawMessage === "Unauthorized"
+                ? "Incorrect username or password."
+                : rawMessage;
+
+            setErrors({ general: message });
         }
         
         
     }
     return (
-        <main>
             <section className={styles.signInSection}>
                 <h1>Sign In</h1>
+
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username_or_email">Username or Email:</label>
-                        <input
-                            type="text"
-                            id="username_or_email"
-                            name="username_or_email"
-                            value={formData.username_or_email}
-                            onChange={handleChange} />
+                    {errors.general && (
+                        <p className={styles.error} role="alert" aria-live="assertive">
+                            {errors.general}
+                        </p>
+                    )}
+                    <div className={styles.formContent}>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="username_or_email">Username or Email:</label>
+                            <input
+                                type="text"
+                                id="username_or_email"
+                                name="username_or_email"
+                                value={formData.username_or_email}
+                                onChange={handleChange} />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange} />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange} />
-                    </div>
-                    <small>{errors.general && <p className={styles.error}>{errors.general}</p>}</small>
-                    <div>
+                    <div className={styles.buttonGroup}>
                         <button>Sign In</button>
-                        <Link to="/">
-                            <button>Cancel</button>
+                        <Link to="/" className={styles.cancelButton}>
+                            Cancel
                         </Link>
                     </div>
                 </form>
             </section>
-        </main>
     )
 }
 
