@@ -1,6 +1,74 @@
+/* Global CSS Variables */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --brand-blue: #013846;
+    --text-dark: #012e3f;
+    --shadow-lg: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body{
-background-image: url("public/images/wooden-dock-lake-image.webp");
-background-size: cover;
-background-position: center top;
-background-repeat: no-repeat;
+    background-image: url("/images/wooden-dock-lake-image.webp");
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', 'Helvetica Neue', sans-serif;
+    color: var(--text-dark);
 } 
+
+/* Utility Class */
+.floatingBox {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    max-width: 90%;
+    border-radius: 1rem;
+}
+
+h1 {
+    font-family: "Noto Sans Display", serif;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: "Lexend", serif;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: "Lexend", serif;
+}
+
+body {
+    font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center; }
+
+

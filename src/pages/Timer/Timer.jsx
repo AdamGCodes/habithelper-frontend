@@ -18,9 +18,9 @@ const Timer = () => {
     const [timers, setTimers] = useState([])
 
     return (
-        <main>
+        <section>
             <TimerIndex />
-        </main>
+        </section>
     )
 };
 

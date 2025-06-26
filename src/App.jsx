@@ -42,7 +42,7 @@ const handleSignOut = () => {
   
   return(
     <>
-      <main>
+      <section>
         <NavBar user={user} handleSignOut={handleSignOut} />
         <section className={styles.appSection}>
           <Routes>
@@ -75,7 +75,7 @@ const handleSignOut = () => {
         <div className='footnav'>
 
         </div>
-      </main>
+      </section>
     </>
   )
 };

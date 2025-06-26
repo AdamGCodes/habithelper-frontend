@@ -69,7 +69,7 @@ const Dashboard = ({ user, journalsToDisplay }) => {
     
     console.log("Dashboard journals state before passing", journals)
     return (
-        <main>
+        <section>
             <section className={styles.dashboardSection}>
                 <div className={styles.userDiv}>
                     <h2>Welcome {user.first_name}</h2>
@@ -100,7 +100,7 @@ const Dashboard = ({ user, journalsToDisplay }) => {
                     <h2>HabitHelpers</h2>
                 </div>
             </section>
-        </main>
+        </section>
     )
 }
 

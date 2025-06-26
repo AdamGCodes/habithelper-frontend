@@ -62,7 +62,7 @@ const TimerForm = ({timers}) => {
     }
 
     return (
-        <main className={styles.timeFormMain}>
+        <section className={styles.timeFormsection}>
             <section>
                 <form onSubmit={handleSubmit}>
                     <h1>{timerId ? "Update your timer info." : "Create Your Timer"}</h1>
@@ -102,7 +102,7 @@ const TimerForm = ({timers}) => {
                     <button type='submit'>{timerId ? 'Update' : 'Create'} Timer</button>
                 </form>
             </section>
-        </main>
+        </section>
     )
 }
 

@@ -62,7 +62,7 @@ const JournalForm = ( { setJournals }) => {
     }
 
     return (
-        <main>
+        <section>
             <section className={styles.journalFormSection}>
                 <form onSubmit={handleSubmit}>
                     
@@ -82,7 +82,7 @@ const JournalForm = ( { setJournals }) => {
                     <button type='submit'>{journalId ? 'Update' : 'Submit'} Journal Entry</button>
                 </form>
             </section>
-        </main>
+        </section>
     )
 }
 

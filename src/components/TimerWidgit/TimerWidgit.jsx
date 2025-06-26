@@ -36,7 +36,7 @@ const TimerWidgit = ({ startDate }) => {
     //return (One week award)  
     //} 
     return (
-        <main>
+        <section>
             <section className={styles.timerWidgitSection}>
                 <ShowCounter
                 days = { days } 
@@ -44,7 +44,7 @@ const TimerWidgit = ({ startDate }) => {
                 minutes = { minutes }
                 seconds = { seconds }  />
             </section>
-        </main >
+        </section >
     );
 
 }

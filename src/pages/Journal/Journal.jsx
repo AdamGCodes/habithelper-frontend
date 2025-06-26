@@ -20,12 +20,12 @@ const Journal = ({ user }) => {
     const [journals, setJournals] = useState([])
 
     return (
-        <main>
+        <section>
             <section className={styles.journalSection}>
                     <JournalForm/>
                     <JournalIndex limit = {null} />
             </section>
-        </main>
+        </section>
     )
 };
 

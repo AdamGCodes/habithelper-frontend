@@ -56,7 +56,7 @@ const SignUp = ({ setUser }) => {
     }
 
     return (
-        <main>
+        <section>
             <section className={styles.signUpSection}>
                 <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
@@ -135,7 +135,7 @@ const SignUp = ({ setUser }) => {
                     <Errors messages={errors} />
                 </form>
             </section>
-        </main>
+        </section>
     )
 }
 

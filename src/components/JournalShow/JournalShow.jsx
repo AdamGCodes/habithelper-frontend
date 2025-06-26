@@ -55,7 +55,7 @@ const JournalShow = () => {
     }
 
     return (
-        <main>
+        <section>
             <section className={styles.journalShowSection}>
                 <h1>Journal Entry:</h1>
                 <h2>{formatDate(journal.created_at)}</h2>
@@ -63,7 +63,7 @@ const JournalShow = () => {
                 <button onClick={handleDeleteJournal}>Delete</button>
                 <Link to={`/journals/${journalId}/edit`}>Edit</Link>
             </section>
-        </main>
+        </section>
     )
 }
 

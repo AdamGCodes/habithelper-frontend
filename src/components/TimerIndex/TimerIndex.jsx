@@ -84,7 +84,7 @@ const TimerIndex = () => {
         }
 
     return (
-        <main>
+        <section>
             <section className={styles.timerSection}>
                 {modalOpen && (
                 // createPortal( 
@@ -116,7 +116,7 @@ const TimerIndex = () => {
                     )}
                 </ul>
             </section>
-        </main>
+        </section>
     )
 }
 
