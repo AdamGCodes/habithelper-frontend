@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { RefreshCcw, Trash2 } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import ReactDOM from 'react-dom';
 
@@ -45,6 +46,18 @@ const TimerIndex = () => {
     }, [])
 
     //!---Handlers
+
+    //Handle Success
+    const handleFormSuccess = (newTimer) => {
+        setTimers(prev => [newTimer, ...prev]); // add new timer at top
+        setModalOpen(false);                    // close modal
+    };
+
+    //Handle Modal Closs
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
     //Handle Delete
     const handleDeleteTimer = async (id) => {
         try {
@@ -89,7 +102,7 @@ const TimerIndex = () => {
                 {modalOpen && (
                 // createPortal( 
                 <SiteModal onSubmit={handleButtonClick} onCancel={handleButtonClick} onClose={handleButtonClick}>
-                    <TimerForm timers = {timers}/>
+                    <TimerForm onSuccess={handleFormSuccess} timers = {timers}/>
                 </SiteModal>
                 // ,document.body
                     // 
@@ -101,15 +114,19 @@ const TimerIndex = () => {
                     timers.map((timer) => (
                         <li key={timer.id}>
                             <div className={styles.timerDiv}>
+                                <button className={styles.rstBtn} onClick={() => handleRestartTimer(timer.id)}>
+                                    <RefreshCcw size={20}/>
+                                </button>
                                 <div className={styles.timerDisplayGroup}>
-                                    <h2>{(timer.name)}</h2>
-                                    <p><small>{(timer.reason)}</small></p>
-                                    <TimerWidgit startDate={(timer.started)} />
+                                    <h2>{timer.name}</h2>
+                                    <p><small>{timer.reason}</small></p>
+                                    <TimerWidgit startDate={timer.started} />
                                 </div>
-                                <button className={styles.delBtn} onClick={() => handleDeleteTimer(timer.id)}>X</button>
-                                <button className={styles.rstBtn} onClick={() => handleRestartTimer(timer.id)}>Rstrt</button>
+                                <button className={styles.delBtn} onClick={() => handleDeleteTimer(timer.id)}>
+                                    <Trash2 size={20} />
+                                </button>
                             </div>
-                        </li>
+                        </li>                      
                         ))
                     ) : (
                         <p>No timers found.</p>

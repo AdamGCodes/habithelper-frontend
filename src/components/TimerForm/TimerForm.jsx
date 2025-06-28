@@ -11,7 +11,7 @@ import 'react-calendar-datetime-picker/dist/style.css'
 import { create, update } from '../../services/timerService'
 
 
-const TimerForm = ({timers}) => {
+const TimerForm = ({timers, onSuccess}) => {
     //!---States
     const [formData, setFormData] = useState({
         name: '',
@@ -44,64 +44,70 @@ const TimerForm = ({timers}) => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log("form submitted")
+        e.preventDefault();
+        console.log("form submitted");
+
         try {
-            let res
+            // Convert local datetime string to UTC ISO string
+            const formToSend = {
+                ...formData,
+                started: new Date(formData.started).toISOString(),
+            };
+
+            let res;
             if (timerId) {
-                res = await update(timerId, formData)
+                res = await update(timerId, formToSend);
             } else {
-                res = await create(formData)
+                res = await create(formToSend);
+                onSuccess(res.data); // signal to TimerIndex
             }
-            navigate(`/timers/${res.data.id}`)
 
         } catch (error) {
-            console.log(error.response.data)
-            setErrors(error.response.data)
+            console.log(error.response.data);
+            setErrors(error.response.data);
         }
-    }
+    };
 
     return (
-        <section className={styles.timeFormsection}>
-            <section>
-                <form onSubmit={handleSubmit}>
-                    <h1>{timerId ? "Update your timer info." : "Create Your Timer"}</h1>
-                    <label htmlFor="name">What is the habit you want to quit?</label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
-                    {errors.name && <p className='error'>{errors.name.message}</p>}
+        <section className={styles.timeFormSection}>
+            <form onSubmit={handleSubmit}>
+                <h1>{timerId ? "Update your timer info." : "Create Your Timer"}</h1>
+                <label htmlFor="name">What is the habit you want to quit?</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                />
+                {errors.name && <p className='error'>{errors.name.message}</p>}
 
-                    <label htmlFor="reason">What's motivating you to quit?</label>
-                    <input
-                        type="text"
-                        name="reason"
-                        id="reason"
-                        value={formData.reason}
-                        onChange={handleChange}
-                    />
-                    {errors.reason && <p className='error'>{errors.reason.message}</p>}
+                <label htmlFor="reason">What's motivating you to quit?</label>
+                <input
+                    type="text"
+                    name="reason"
+                    id="reason"
+                    value={formData.reason}
+                    onChange={handleChange}
+                />
+                {errors.reason && <p className='error'>{errors.reason.message}</p>}
 
-                    <label htmlFor="started">When did you last do the habit?</label>
-                    <input
-                        type="datetime-local"
-                        name="started"
-                        id="started"
-                        value={formData.date}
-                        onChange={handleChange}
-                    />
-                    {errors.started && <p className='error'>{errors.started.message}</p>}
+                <label htmlFor="started">When did you last do the habit?</label>
+                <input
+                    type="datetime-local"
+                    name="started"
+                    id="started"
+                    step="1"
+                    value={formData.date}
+                    onChange={handleChange}
+                />
+                {errors.started && <p className='error'>{errors.started.message}</p>}
 
-                    {/* Form Error Message */}
-                    {errors.errorMessage && <p className="error">{errors.errorMessage}</p>}
+                {/* Form Error Message */}
+                {errors.errorMessage && <p className="error">{errors.errorMessage}</p>}
 
-                    <button type='submit'>{timerId ? 'Update' : 'Create'} Timer</button>
-                </form>
-            </section>
+                <button type='submit'>{timerId ? 'Update' : 'Create'} Timer</button>
+            </form>
         </section>
     )
 }

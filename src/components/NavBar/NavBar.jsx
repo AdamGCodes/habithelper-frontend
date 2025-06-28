@@ -26,7 +26,7 @@ const NavBar = ({ user, handleSignOut }) => {
     }, [prevScrollY]);
 
     return (
-        <header className={`${styles.navSection} ${hidden ? styles.navHidden : ''}`}>
+        <div className={`${styles.navSection} ${hidden ? styles.navHidden : ''}`}>
             <nav className={styles.navTopRow}>
                 <h1>
                     <Link to="/" aria-label="Go to home page">HabitHelper</Link>
@@ -60,7 +60,7 @@ const NavBar = ({ user, handleSignOut }) => {
                     </>
                 )}
             </ul>
-        </header>
+        </div>
 
     );
 };

@@ -4,6 +4,14 @@
     --brand-blue: #013846;
     --text-dark: #012e3f;
     --shadow-lg: 0 0 15px rgba(0, 0, 0, 0.1); 
+
+}
+/* Only body is known to be required but adding html and #root for belt and braces approach.  */
+html, body, #root{ 
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 *,
@@ -14,30 +22,6 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-body{
-    background-image: url("/images/wooden-dock-lake-image.webp");
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito', 'Helvetica Neue', sans-serif;
-    color: var(--text-dark);
-} 
-
-/* Utility Class */
-.floatingBox {
-    background-color: var(--card-bg);
-    box-shadow: var(--shadow-lg);
-    padding: 1.5rem;
-    margin: 1rem auto;
-    max-width: 90%;
-    border-radius: 1rem;
 }
 
 h1 {
@@ -52,10 +36,6 @@ h2 {
 
 p {
     font-family: "Lexend", serif;
-}
-
-body {
-    font-size: 1rem;
 }
 
 h1,

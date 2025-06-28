@@ -42,16 +42,18 @@ const handleSignOut = () => {
   
   return(
     <>
-      <section>
-        <NavBar user={user} handleSignOut={handleSignOut} />
+      <main className={styles.appWrapper}>
+        <header className={styles.fullWidthHeader}>
+          <NavBar user={user} handleSignOut={handleSignOut} />
+        </header>
         <section className={styles.appSection}>
           <Routes>
             { user 
               ?(
                 <>
                   <Route path="/" element={<Dashboard user={user} />} />
-                  <Route path="/timers/" element={<><Timer/> </>} />
-                  <Route path="/timers/:timersId" element={<><Timer /> </>} />
+                  <Route path="/timers/" element={<Timer/>} />
+                  <Route path="/timers/:timersId" element={<Timer /> } />
                   
 
                   <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
@@ -72,10 +74,8 @@ const handleSignOut = () => {
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </section>
-        <div className='footnav'>
-
-        </div>
-      </section>
+        <footer className={styles.footerNav}>    </footer>
+      </main>
     </>
   )
 };

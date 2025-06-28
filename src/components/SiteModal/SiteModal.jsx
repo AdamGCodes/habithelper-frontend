@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
-import styles from './SiteModal.module.scss'
+import React from 'react';
+import styles from './SiteModal.module.scss';
 
-
-
-const SiteModal = ({children, onClose, onCancel}) => {
-    
+const SiteModal = ({ children, onClose }) => {
     return (
-        <div className={styles.modalContainer} onClick={(e) => { 
-            if (e.target.className === "modalContainer") {
-                onClose(); }}}>
+        <div
+            className={styles.modalContainer}
+            onClick={(e) => {
+                if (e.target === e.currentTarget) onClose();
+            }}
+        >
             <div className={styles.modal}>
+                <button className={styles.close} onClick={() => onClose("Close clicked")}>
+                    &times;
+                </button>
                 {children}
-                <p className={styles.close} onClick={ () => onClose("The close button was clicked") }>&times;</p>
-                {/* <button type='submit'>{'Create'} Timer</button>
-                <button onClick={() => onCancel()} >Cancel</button> */}
             </div>
-            
         </div>
-    )
-}
+    );
+};
 
 export default SiteModal;
