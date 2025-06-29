@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 
 //!---Styles
 import styles from './Timer.module.scss'
+import layout from '../../App.module.scss'
 
 //!---Services
 // import { index, show, create, update, deleteJournal } from '../../services/journalService.js'
@@ -18,8 +19,10 @@ const Timer = () => {
     const [timers, setTimers] = useState([])
 
     return (
-        <section>
-            <TimerIndex />
+        <section className={styles.appSection}> 
+            {/* <div className={layout.pageCard}> */}
+                <TimerIndex />
+            {/* </div> */}
         </section>
     )
 };

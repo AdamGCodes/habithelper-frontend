@@ -13,7 +13,7 @@ import styles from './Landing.module.scss'
 
 const Landing = () => {
     return (
-        <section className={`floatingBox ${styles.landingSection}`}>
+        <section className={styles.landingSection}>
             <div className={styles.landingContent}>
                 <h1>Welcome To HabitHelper</h1>
                 <h2>“Quality is not an act, it is a habit.”</h2>

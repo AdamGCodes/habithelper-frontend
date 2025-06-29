@@ -64,9 +64,7 @@ const TimerIndex = () => {
             console.log("Deleting timer with ID:", id)
             await deleteTimer(id)
             setTimers((prevTimers) => {
-                console.log("Timers beofre filtering:", prevTimers)
                 const updatedTimers = prevTimers.filter((timer) => timer.id !==id);
-                console.log("Timers after filtering:", updatedTimers)
                 return updatedTimers;
             })
         } catch (error) {
@@ -97,19 +95,24 @@ const TimerIndex = () => {
         }
 
     return (
-        <section>
-            <section className={styles.timerSection}>
-                {modalOpen && (
-                // createPortal( 
-                <SiteModal onSubmit={handleButtonClick} onCancel={handleButtonClick} onClose={handleButtonClick}>
-                    <TimerForm onSuccess={handleFormSuccess} timers = {timers}/>
-                </SiteModal>
-                // ,document.body
-                    // 
-                    )}
+        <section className={styles.timerSection}>
+            {modalOpen && (
+            // createPortal( 
+            <SiteModal onSubmit={handleButtonClick} onCancel={handleButtonClick} onClose={handleButtonClick}>
+                <TimerForm onSuccess={handleFormSuccess} timers = {timers}/>
+            </SiteModal>
+            // ,document.body
+                // 
+                )}
+            <div className={styles.headerRow}>
+                <h1>My Temperance Timers</h1>
+                <button className={styles.ModalOpenBtn} onClick={() => setModalOpen(true)}>
+                    Create A New Timer
+                </button>
+            </div>
+            
+            <div className={styles.timerListWrapper} >
                 <ul>
-                    <h1>My Temperance Timers</h1>
-                    <button className={styles.ModalOpenBtn} onClick={() => setModalOpen(true)}>Create A New Timer</button>
                     {timers.length > 0 ? (
                     timers.map((timer) => (
                         <li key={timer.id}>
@@ -119,7 +122,7 @@ const TimerIndex = () => {
                                 </button>
                                 <div className={styles.timerDisplayGroup}>
                                     <h2>{timer.name}</h2>
-                                    <p><small>{timer.reason}</small></p>
+                                    {/* <p><small>{timer.reason}</small></p> */}
                                     <TimerWidgit startDate={timer.started} />
                                 </div>
                                 <button className={styles.delBtn} onClick={() => handleDeleteTimer(timer.id)}>
@@ -132,7 +135,7 @@ const TimerIndex = () => {
                         <p>No timers found.</p>
                     )}
                 </ul>
-            </section>
+            </div>
         </section>
     )
 }

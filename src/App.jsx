@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 //!---Styles
@@ -39,7 +39,7 @@ const handleSignOut = () => {
   setUser(null)
   navigate('/signin')
 }
-  
+
   return(
     <>
       <main className={styles.appWrapper}>

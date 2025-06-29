@@ -10,16 +10,30 @@
     width: 100%; 
 }
 
+// .pageCard {
+//     background: rgba(255, 255, 255, 0.2); // more transparent
+//     backdrop-filter: blur(12px);
+//     -webkit-backdrop-filter: blur(12px);
+//     border-radius: 1rem;
+//     padding: 2rem;
+//     width: 100%;
+//     max-width: 1000px;
+//     margin: 2rem auto;
+//     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+//     border: 1px solid rgba(255, 255, 255, 0.3);
+//     color: var(--text-dark); 
+// }
+
 .footerNav {
     height: 60px;
     margin-top: auto;
 }
 
 .appSection {//Space betwee header and content.
-    padding-top: 7rem;
+    padding-top: 3rem;
 
     @media (min-width: 790px) {
-        padding-top: 8rem; // slightly more for desktop header
+        padding-top: 4rem; // slightly more for desktop header
     } 
 }
 

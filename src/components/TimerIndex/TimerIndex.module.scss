@@ -5,24 +5,48 @@
     gap: 1.5rem;
     padding: 2rem;
 
-    h1 {
-        font-size: 1.75rem;
-        color: #012e3f;
-        margin-bottom: 1rem;
+    .headerRow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        margin-bottom: 0rem;
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(4px);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 800px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+        h1 {
+            font-size: 1.75rem;
+            color: #012e3f;
+            margin: 0;
+        }
+
+        .ModalOpenBtn {
+            background-color: #1f6e8d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #154f66;
+            }
+        }
     }
 
-    .ModalOpenBtn {
-        background-color: #1f6e8d;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #154f66;
-        }
+    .timerListWrapper {
+        width: 100%;
+        padding: 0rem 2rem;
+        border-radius: 1rem;
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(4px);
     }
 
     ul {
@@ -35,68 +59,94 @@
         }
 
         .timerDiv {
-            position: relative;
             display: flex;
             align-items: stretch;
-            background-color: #f2f9fb;
-            color: #012e3f;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 999px;
+            padding: 0.5rem;
             width: 100%;
             max-width: 600px;
+            min-height: 80px;
             margin: 1rem auto;
-            border-radius: 999px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            border: #1f6e8d 1px solid;
+
+            box-shadow:
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+                0 2px 6px rgba(0, 0, 0, 0.8);
 
             .timerDisplayGroup {
                 flex-grow: 1;
                 text-align: center;
-                padding: 1rem;
+                padding: 0 1rem;
 
                 h2 {
                     font-size: 1.25rem;
                     margin: 0;
-                }
-
-                p {
-                    margin: 0.25rem 0;
-                    font-size: 1rem;
-                    color: #555;
-                }
-
-                small {
-                    display: block;
-                    font-size: 0.8rem;
-                    color: #888;
                 }
             }
 
             .rstBtn,
             .delBtn {
                 flex: 0 0 60px;
-                border: none;
-                font-size: 0.9rem;
-                font-weight: bold;
-                background-color: #1f6e8d;
-                color: white;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                border: none;
+                padding: 0;
+                background-color: rgba(31, 110, 141, 0.9);
+                color: white;
+                font-weight: bold;
+                font-size: 0.9rem;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                
+                
             }
 
             .rstBtn {
                 border-radius: 999px 0 0 999px;
+                padding: 0 1.5rem 0 1.5rem;
             }
 
             .delBtn {
                 border-radius: 0 999px 999px 0;
+                padding: 0 1.5rem 0 1.5rem;
             }
 
             .rstBtn:hover,
             .delBtn:hover {
                 background-color: #154f66;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
             }
         }
+    }
+}
+
+@media (min-width: 700px) {
+    .headerRow {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+    }
+}
+
+@media (min-width: 800px) {
+    .timerSection ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .timerSection ul li {
+        flex: 0 1 calc(50% - 2rem);
+        max-width: 500px;
+        width: 100%;
     }
 }
