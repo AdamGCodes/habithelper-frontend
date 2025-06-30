@@ -77,12 +77,13 @@ const TimerForm = ({timers, onSuccess}) => {
                     type="text"
                     name="name"
                     id="name"
+                    maxLength={30}
                     value={formData.name}
                     onChange={handleChange}
                 />
                 {errors.name && <p className='error'>{errors.name.message}</p>}
 
-                <label htmlFor="reason">What's motivating you to quit?</label>
+                {/* <label htmlFor="reason">What's motivating you to quit?</label>
                 <input
                     type="text"
                     name="reason"
@@ -90,7 +91,7 @@ const TimerForm = ({timers, onSuccess}) => {
                     value={formData.reason}
                     onChange={handleChange}
                 />
-                {errors.reason && <p className='error'>{errors.reason.message}</p>}
+                {errors.reason && <p className='error'>{errors.reason.message}</p>} */}
 
                 <label htmlFor="started">When did you last do the habit?</label>
                 <input

@@ -1,7 +1,18 @@
 .timerWidgitSection {
     font-family: "Lexend", serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    max-width: fit-content;
+
+    padding: 10px 0;
 }
+
+.timerRow {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    // Optional: reduce spacing on very small screens
+    @media (max-width: 500px) {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    } }

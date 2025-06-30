@@ -8,7 +8,8 @@ const TimerDisplay = ({ value, type}) => {
     return (
         <div className={styles.timeBlock}>
             <small>{type}</small>
-            <p>{value}</p>
+            <p>{(value !== undefined && value !== null ? value : 0).toString().padStart(2, '0')}</p>
+
         </div>
 
     );
