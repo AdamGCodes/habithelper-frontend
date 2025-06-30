@@ -29,11 +29,14 @@
     margin-top: auto;
 }
 
-.appSection {//Space betwee header and content.
-    padding-top: 3rem;
+.appSection {
+    margin-top: 5.5rem;
+    width: 96vw;
+
 
     @media (min-width: 790px) {
-        padding-top: 4rem; // slightly more for desktop header
+        margin-top: 7rem;
+        width: 94vw;
     } 
 }
 

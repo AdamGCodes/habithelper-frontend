@@ -6,7 +6,7 @@
     color: #012e3f;
     border-radius: 15px;
     filter: drop-shadow(5px 5px 5px black);
-    margin: 0 auto;
+    margin: 3rem auto;
     width: 92vw;
 
 
@@ -130,7 +130,6 @@
 
                     label {
                         margin-right: 10px;                            
-                        height: 0; // tiny adjustment but required to align with input
                         }
                     }
                 }

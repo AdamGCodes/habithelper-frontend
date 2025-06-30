@@ -56,85 +56,86 @@ const SignUp = ({ setUser }) => {
     }
 
     return (
-        <section>
-            <section className={styles.signUpSection}>
-                <h1>Sign Up</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className={styles.formField}>
-                        <label htmlFor="username">Username:</label>
-                        <input 
+        <section className={styles.signUpSection}>
+            <h1>Sign Up</h1>
+            <form onSubmit={handleSubmit}>
+                <div className={styles.formField}>
+                    <label htmlFor="username">Username:</label>
+                    <input 
+                    type="text"
+                    id="username"
+                    name="username"
+                    autoComplete="username"
+                    value={formData.username}
+                    onChange={handleChange}/>
+                </div>
+                {errors.username && (
+                    <small className={styles.error}>{errors.username[0]}</small>
+                )}
+                <div className={styles.formField}>
+                    <label htmlFor="email">Email:</label>
+                    <input
                         type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}/>
-                    </div>
-                    {errors.username && (
-                        <small className={styles.error}>{errors.username[0]}</small>
-                    )}
-                    <div className={styles.formField}>
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="text"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange} />
-                    </div>
-                    {errors.email && (
-                        <small className={styles.error}>{errors.email[0]}</small>
-                    )}
-                    <div className={styles.formField}>
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange} />
-                    </div>
-                    {errors.password && (
-                        <small className={styles.error}>{errors.password[0]}</small>
-                    )}
-                    <div className={styles.formField}>
-                        <label htmlFor="password_confirmation">Confirm Password:</label>
-                        <input
-                            type="password"
-                            id="password_confirmation"
-                            name="password_confirmation"
-                            value={formData.password_confirmation}
-                            onChange={handleChange} />
-                    </div>
-                    {errors.password_confirmation && (
-                        <small className={styles.error}>{errors.password_confirmation[0]}</small>
-                    )}
-                    <div className={styles.formField}>
-                        <label htmlFor="first_name">First name:</label>
-                        <input
-                            type="text"
-                            id="first_name"
-                            name="first_name"
-                            value={formData.first_name}
-                            onChange={handleChange} />
-                    </div>
-                    <div className={styles.formField}>
-                        <label htmlFor="last_name">Last name:</label>
-                        <input
-                            type="text"
-                            id="last_name"
-                            name="last_name"
-                            value={formData.last_name}
-                            onChange={handleChange} />
-                    </div>
-                    <div className={styles.buttonGroup}>
-                        <button type="submit">Sign Up</button>
-                        <Link to="/">
-                            <button type="button">Cancel</button>
-                        </Link>
-                    </div>
-                    <Errors messages={errors} />
-                </form>
-            </section>
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange} />
+                </div>
+                {errors.email && (
+                    <small className={styles.error}>{errors.email[0]}</small>
+                )}
+                <div className={styles.formField}>
+                    <label htmlFor="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autoComplete="new-password"
+                        value={formData.password}
+                        onChange={handleChange} />
+                </div>
+                {errors.password && (
+                    <small className={styles.error}>{errors.password[0]}</small>
+                )}
+                <div className={styles.formField}>
+                    <label htmlFor="password_confirmation">Confirm Password:</label>
+                    <input
+                        type="password"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        autoComplete="new-password"
+                        value={formData.password_confirmation}
+                        onChange={handleChange} />
+                </div>
+                {errors.password_confirmation && (
+                    <small className={styles.error}>{errors.password_confirmation[0]}</small>
+                )}
+                <div className={styles.formField}>
+                    <label htmlFor="first_name">First name:</label>
+                    <input
+                        type="text"
+                        id="first_name"
+                        name="first_name"
+                        value={formData.first_name}
+                        onChange={handleChange} />
+                </div>
+                <div className={styles.formField}>
+                    <label htmlFor="last_name">Last name:</label>
+                    <input
+                        type="text"
+                        id="last_name"
+                        name="last_name"
+                        value={formData.last_name}
+                        onChange={handleChange} />
+                </div>
+                <div className={styles.buttonGroup}>
+                    <button type="submit">Sign Up</button>
+                    <Link to="/">
+                        <button type="button">Cancel</button>
+                    </Link>
+                </div>
+                <Errors messages={errors} />
+            </form>
         </section>
     )
 }
