@@ -1,35 +1,23 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { DtPicker } from 'react-calendar-datetime-picker'
-
-
-//!---Styles
+import { useNavigate } from 'react-router-dom'
 import styles from './TimerForm.module.scss'
-import 'react-calendar-datetime-picker/dist/style.css'
-
-//!---Services
 import { create, update } from '../../services/timerService'
 
-
-const TimerForm = ({timers, onSuccess}) => {
-    //!---States
+const TimerForm = ({ timers, onSuccess }) => {
     const [formData, setFormData] = useState({
         name: '',
-        reason:'',
-        started:'',
+        reason: '',
+        started: '',
     })
 
     const [errors, setErrors] = useState({})
-
-    //!---Location Variables
     const navigate = useNavigate()
     const timerId = timers.id
-    // const { journalId } = useParams() Don't need this but do need to make sure I'm passing the id from the target
 
     useEffect(() => {
         const fetchTimer = async () => {
             try {
-                const { data } = await show(TimerId)
+                const { data } = await show(timerId)
                 setFormData(data)
             } catch (error) {
                 console.log(error)
@@ -38,41 +26,46 @@ const TimerForm = ({timers, onSuccess}) => {
         if (timerId) fetchTimer()
     }, [timerId])
 
-    //!---Handlers
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setErrors({ ...errors, [e.target.name]: null }) // optional: clear field error on change
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log("form submitted");
-
+        e.preventDefault()
         try {
-            // Convert local datetime string to UTC ISO string
+            const startedDate = formData.started ? new Date(formData.started) : null
+
             const formToSend = {
                 ...formData,
-                started: new Date(formData.started).toISOString(),
-            };
-
-            let res;
-            if (timerId) {
-                res = await update(timerId, formToSend);
-            } else {
-                res = await create(formToSend);
-                onSuccess(res.data); // signal to TimerIndex
+                started: startedDate ? startedDate.toISOString() : null,
             }
 
+            let res
+            if (timerId) {
+                res = await update(timerId, formToSend)
+            } else {
+                res = await create(formToSend)
+                onSuccess(res.data)
+            }
         } catch (error) {
-            console.log(error.response.data);
-            setErrors(error.response.data);
+            console.log('API error:', error.response?.data || error)
+            if (error.response?.data) {
+                setErrors(error.response.data)
+            } else {
+                setErrors({ general: 'Something went wrong. Please try again.' })
+            }
         }
-    };
+    }      
 
     return (
         <section className={styles.timeFormSection}>
             <form onSubmit={handleSubmit}>
-                <h1>{timerId ? "Update your timer info." : "Create Your Timer"}</h1>
-                <label htmlFor="name">What is the habit you want to quit?</label>
+                <h1>{timerId ? 'Update your timer info' : 'Create Your Timer'}</h1>
+
+                <label htmlFor="name">
+                    Habit Label <span>(Max 25 characters)</span>
+                </label>
                 <input
                     type="text"
                     name="name"
@@ -81,17 +74,7 @@ const TimerForm = ({timers, onSuccess}) => {
                     value={formData.name}
                     onChange={handleChange}
                 />
-                {errors.name && <p className='error'>{errors.name.message}</p>}
-
-                {/* <label htmlFor="reason">What's motivating you to quit?</label>
-                <input
-                    type="text"
-                    name="reason"
-                    id="reason"
-                    value={formData.reason}
-                    onChange={handleChange}
-                />
-                {errors.reason && <p className='error'>{errors.reason.message}</p>} */}
+                {errors.name && <p className={styles.error}>{errors.name[0]}</p>}
 
                 <label htmlFor="started">When did you last do the habit?</label>
                 <input
@@ -99,15 +82,14 @@ const TimerForm = ({timers, onSuccess}) => {
                     name="started"
                     id="started"
                     step="1"
-                    value={formData.date}
+                    value={formData.started}
                     onChange={handleChange}
                 />
-                {errors.started && <p className='error'>{errors.started.message}</p>}
+                {errors.started && <p className={styles.error}>{errors.started[0]}</p>}
 
-                {/* Form Error Message */}
-                {errors.errorMessage && <p className="error">{errors.errorMessage}</p>}
+                {errors.general && <p className={styles.generalError}>{errors.general}</p>}
 
-                <button type='submit'>{timerId ? 'Update' : 'Create'} Timer</button>
+                <button type="submit">{timerId ? 'Update' : 'Create'} Timer</button>
             </form>
         </section>
     )

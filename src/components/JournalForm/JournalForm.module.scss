@@ -1,42 +1,106 @@
-    .journalFormSection {
-                    
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-    
-            label {
-                // h1 {
-                //         margin: 0 0 5px 0;
-                //     }
-            }
-            textarea{
+.journalFormSection {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 2rem;   
+
+    h1{
+        margin-bottom: 2rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+        .actionRow {
                 display: flex;
                 justify-content: center;
-                width: 80%;
-                font-size: 14pt;
-                padding: 3px 10px;
-                margin-top: 0;
-                border-radius: 20px;
-                border: #012e3f solid 3px;
+                gap: 2rem;
+                margin-top: 1.5rem;
+                
             }
-            button {
-                margin: 15px 10px 0px 10px;
-                padding: 5px 20px;
-                font-size: 1rem;
+        
+            .iconButton {
                 background-color: #012e3f;
                 color: white;
+                border: none;
+                font-size: 1.4rem;
                 border-radius: 15px;
-                text-decoration: none;
-                font-family: "Lexend", serif;
-                width: 80%;
+                width: 5rem;
+                height: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+        
+                &:hover {
+                    background-color: white;
+                    color: #012e3f;
+                    border: 2px solid #012e3f;
+                }
             }
-            button:hover{
-                background-color: white;
-                color: #012e3f;
-                font-weight: bold;
+        
+            .danger {
+                background-color: #c0392b;
+        
+                &:hover {
+                    background-color: white;
+                    color: #c0392b;
+                    border: 2px solid #c0392b;
+                }         
             }
+
+        .error {
+            color: #c0392b;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .generalError {
+            color: crimson;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 1rem;
         }
     }
+}
+
+:global(.quill) {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+:global(.ql-container) {
+    font-family: 'Lexend', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border: 2px solid #012e3f;
+    min-height: 200px;
+    background-color: #ffffff;
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+:global(.ql-editor) {
+    padding: 1rem;
+    color: #012e3f;
+
+}
+
+:global(.ql-toolbar) {
+    background-color: #e8f1f3;
+        border: 2px solid #012e3f;
+        border-bottom: none;
+        border-radius: 12px 12px 0 0;
+}

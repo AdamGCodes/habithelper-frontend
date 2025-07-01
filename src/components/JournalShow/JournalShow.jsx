@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { format } from 'date-fns'
-
+import { FaTrashAlt, FaEdit, FaBookOpen } from 'react-icons/fa';
 
 //!---Styles
 import styles from './JournalShow.module.scss'
@@ -55,16 +55,44 @@ const JournalShow = () => {
     }
 
     return (
-        <section>
-            <section className={styles.journalShowSection}>
-                <h1>Journal Entry:</h1>
+        <section className={styles.journalShowSection}>
+            <div className={styles.card}>
+                <h1>Journal Entry</h1>
                 <h2>{formatDate(journal.created_at)}</h2>
-                <p>{journal.text}</p>
-                <button onClick={handleDeleteJournal}>Delete</button>
-                <Link to={`/journals/${journalId}/edit`}>Edit</Link>
-            </section>
+                <div
+                    className={styles.text}
+                    dangerouslySetInnerHTML={{ __html: journal.text }}
+                />
+
+
+                <div className={styles.actions}>
+                    <button
+                        className={styles.danger}
+                        onClick={handleDeleteJournal}
+                        title="<<Delete journal entry>>"
+                        aria-label="Delete journal entry">
+                        <FaTrashAlt />
+                    </button>
+
+                    <Link
+                        to="/journals"
+                        className={styles.iconButton}
+                        title="<<Back to Your Journal List>>"
+                        aria-label="Back to Your Journal List"
+                    >
+                        <FaBookOpen />
+                    </Link>
+
+                    <Link to={`/journals/${journalId}/edit`} 
+                        title="<<Edit journal entry>>"
+                        aria-label="Edit journal entry"
+                    >
+                        <FaEdit />
+                    </Link>
+                </div>
+            </div>
         </section>
-    )
+    )      
 }
 
 export default JournalShow;

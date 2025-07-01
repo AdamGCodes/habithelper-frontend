@@ -23,7 +23,7 @@ import Journal from './pages/Journal/Journal';
 //!--- Utils
 import {getUser, removeToken } from './utils/auth'
 import JournalShow from './components/JournalShow/JournalShow';
-import JournalForm from './components/JournalForm/JournalForm';
+import JournalEdit from './components/JournalEdit/JournalEdit';
 
 
 const App = () => {
@@ -60,7 +60,7 @@ const handleSignOut = () => {
                   
                   <Route path="/journals/" element={<Journal />} />
                   <Route path="/journals/:journalId" element={<JournalShow />} />
-                  <Route path="/journals/:journalId/edit" element={<JournalForm />} />
+                  <Route path="/journals/:journalId/edit" element={<JournalEdit />} />
                 </>
               )
               : (
