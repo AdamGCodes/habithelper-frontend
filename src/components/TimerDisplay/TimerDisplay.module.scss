@@ -1,9 +1,32 @@
-small{
-    line-height: 0;
-    margin: 0px 0px 0px 5px;
-}
-p{
-    line-height: 0;
-    margin: 10px 0px 20px 0px;
+.timeBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    padding: 0;
+    column-gap: 10.5rem;
+
+    small {
+        font-size: 0.75rem;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 0rem;
+        margin-left: 0rem;
+        line-height: 1;
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-family: 'Courier New', monospace;
+        font-weight: 900;
+        color: #012e3f;
+        margin: 0;
+        line-height: 1;
+    } 
+}
+@media (max-width: 500px) {
+    .timeBlock{
+        width: 50px;
+    }
+    
 }

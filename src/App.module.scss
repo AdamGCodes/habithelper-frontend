@@ -1,28 +1,42 @@
-body{
+.appWrapper {
+    min-height: 100vh;
+    background: url('/images/wooden-dock-lake-image.webp') center / cover no-repeat;
     display: flex;
     flex-direction: column;
-    // background-image: url("public/images/wooden-dock-lake-image.jpg");
-    // background-size: cover;
-    // background-position: center top;
-    // background-repeat: no-repeat;
-    height: 100vh;
-    main{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #012e3f;
-        .appSection{
-            margin-top: 28vh;
-        }
-        h1{
-            font-family: "Noto Sans Display", serif;
-        }
-        h2{
-            font-family: "Lexend", serif;
-        }
-        p{
-            font-family: "Lexend", serif;
-        }
-        }
+    align-items: center;
+    padding: 2rem 0rem;
 }
+.fullWidthHeader {
+    width: 100%; 
+}
+
+// .pageCard {
+//     background: rgba(255, 255, 255, 0.2); // more transparent
+//     backdrop-filter: blur(12px);
+//     -webkit-backdrop-filter: blur(12px);
+//     border-radius: 1rem;
+//     padding: 2rem;
+//     width: 100%;
+//     max-width: 1000px;
+//     margin: 2rem auto;
+//     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+//     border: 1px solid rgba(255, 255, 255, 0.3);
+//     color: var(--text-dark); 
+// }
+
+.footerNav {
+    height: 60px;
+    margin-top: auto;
+}
+
+.appSection {
+    margin-top: 5.5rem;
+    width: 96vw;
+
+
+    @media (min-width: 790px) {
+        margin-top: 7rem;
+        width: 94vw;
+    } 
+}
+

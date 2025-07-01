@@ -1,39 +1,45 @@
 import { useEffect, useState } from "react";
+import { intervalToDuration } from "date-fns";
 
 const useCounter = (startDate) => {
-    // const counterDate = new Date(startDate).getTime();
-    const [counterTimePassed, setCounterTimePassed] = useState([0, 0, 0, 0]);
+    const [timePassed, setTimePassed] = useState({
+        years: 0,
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    });
 
     useEffect(() => {
-        if(!startDate) {
-            console.error("Invalid Start Date provided.");
-            return
-        };
+        if (!startDate) {
+            console.error("Invalid startDate provided to useCounter.");
+            return;
+        }
 
-        const target = new Date(startDate);
+        const start = new Date(startDate);
 
         const updateCounter = () => {
             const now = new Date();
-            const difference = now - target;
+            const duration = intervalToDuration({ start, end: now });
 
-            if (difference >= 0){
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((difference / (1000 * 60)) % 60);
-                const seconds = Math.floor((difference / 1000) % 60);
-
-                setCounterTimePassed ([days, hours, minutes, seconds]);
-            } else {
-                setCounterTimePassed([0, 0, 0, 0]);
-            }
+            setTimePassed(duration);
         };
 
-        updateCounter();
-        const interval = setInterval(updateCounter, 1000)
+        updateCounter(); // initial call
+        const interval = setInterval(updateCounter, 1000);
+
         return () => clearInterval(interval);
     }, [startDate]);
 
-    return counterTimePassed;
+    return [
+        timePassed.years,
+        timePassed.months,
+        timePassed.days,
+        timePassed.hours,
+        timePassed.minutes,
+        timePassed.seconds
+    ];
 };
 
-export {useCounter}
+export { useCounter };

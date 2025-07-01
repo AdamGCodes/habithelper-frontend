@@ -10,12 +10,11 @@ import styles from './HabitHelper.module.scss'
 
 //!---Componants
 
-
 const HabitHelper = () => {
     return (
-        <main>
+        <section className={styles.floatingBox}>
             <h1>HabitHelper Page</h1>
-        </main>
+        </section>
     )
 }
 

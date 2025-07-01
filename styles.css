@@ -1,6 +1,54 @@
-body{
-background-image: url("public/images/wooden-dock-lake-image.webp");
-background-size: cover;
-background-position: center top;
-background-repeat: no-repeat;
-} 
+/* Global CSS Variables */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --brand-blue: #013846;
+    --text-dark: #012e3f;
+    --shadow-lg: 0 0 15px rgba(0, 0, 0, 0.1); 
+
+}
+/* Only body is known to be required but adding html and #root for belt and braces approach.  */
+html, body, #root{ 
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: "Noto Sans Display", serif;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: "Lexend", serif;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: "Lexend", serif;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center; }
+
+

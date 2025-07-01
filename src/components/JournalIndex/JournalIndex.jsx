@@ -41,7 +41,7 @@ const JournalIndex = ({ journals = [], limit }) => {
     };
 
     return (
-        <main>
+        <section>
             <section className={styles.journalIndexSection}>
                 <ul>
                     {journalsToShow.length > 0 ? (
@@ -57,7 +57,7 @@ const JournalIndex = ({ journals = [], limit }) => {
                     )}
                 </ul>
             </section>
-        </main>
+        </section>
     )}
 
     export default JournalIndex;

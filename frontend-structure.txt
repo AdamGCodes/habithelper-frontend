@@ -1,0 +1,93 @@
+.
+├── ReadMe.md
+├── eslint.config.js
+├── frontend-structure.txt
+├── index.html
+├── netlify.toml
+├── package-lock.json
+├── package.json
+├── public
+│   └── images
+│       ├── refresh.svg
+│       ├── wooden-dock-lake-image.jpg
+│       └── wooden-dock-lake-image.webp
+├── src
+│   ├── App.jsx
+│   ├── App.module.scss
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── CalendarView
+│   │   │   └── CalendarView.jsx
+│   │   ├── Errors
+│   │   │   ├── Errors.jsx
+│   │   │   └── Errors.module.scss
+│   │   ├── HabitHelperDisplay
+│   │   │   ├── HabitHelperDisplay.jsx
+│   │   │   └── HabitHelperDisplay.module.scss
+│   │   ├── HabitHelperForm
+│   │   │   ├── HabitHelperForm.jsx
+│   │   │   └── HabitHelperForm.module.scss
+│   │   ├── JournalForm
+│   │   │   ├── JournalForm.jsx
+│   │   │   └── JournalForm.module.scss
+│   │   ├── JournalIndex
+│   │   │   ├── JournalIndex.jsx
+│   │   │   └── JournalIndex.module.scss
+│   │   ├── JournalShow
+│   │   │   ├── JournalShow.jsx
+│   │   │   └── JournalShow.module.scss
+│   │   ├── NavBar
+│   │   │   ├── NavBar.jsx
+│   │   │   └── NavBar.module.scss
+│   │   ├── SiteModal
+│   │   │   ├── SiteModal.jsx
+│   │   │   └── SiteModal.module.scss
+│   │   ├── TimerDisplay
+│   │   │   ├── TimerDisplay.jsx
+│   │   │   └── TimerDisplay.module.scss
+│   │   ├── TimerForm
+│   │   │   ├── TimerForm.jsx
+│   │   │   └── TimerForm.module.scss
+│   │   ├── TimerIndex
+│   │   │   ├── TimerIndex.jsx
+│   │   │   └── TimerIndex.module.scss
+│   │   └── TimerWidgit
+│   │       ├── TimerWidgit.jsx
+│   │       └── TimerWidgit.module.scss
+│   ├── hooks
+│   │   └── useCounter.js
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── Dashboard
+│   │   │   ├── Dashboard.jsx
+│   │   │   └── Dashboard.module.scss
+│   │   ├── HabitHelper
+│   │   │   ├── HabitHelper.jsx
+│   │   │   └── HabitHelper.module.scss
+│   │   ├── Journal
+│   │   │   ├── Journal.jsx
+│   │   │   └── Journal.module.scss
+│   │   ├── Landing
+│   │   │   ├── Landing.jsx
+│   │   │   └── Landing.module.scss
+│   │   ├── SignIn
+│   │   │   ├── SignIn.jsx
+│   │   │   └── SignIn.module.scss
+│   │   ├── SignUp
+│   │   │   ├── SignUp.jsx
+│   │   │   └── SignUp.module.scss
+│   │   └── Timer
+│   │       ├── Timer.jsx
+│   │       └── Timer.module.scss
+│   ├── services
+│   │   ├── interceptors.js
+│   │   ├── journalService.js
+│   │   ├── timerService.js
+│   │   └── userService.js
+│   └── utils
+│       └── auth.js
+├── styles.css
+└── vite.config.js
+
+30 directories, 61 files

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 //!---Styles
@@ -39,22 +39,25 @@ const handleSignOut = () => {
   setUser(null)
   navigate('/signin')
 }
-  
+
   return(
     <>
-      <main>
-        <NavBar user={user} handleSignOut={handleSignOut} />
+      <main className={styles.appWrapper}>
+        <header className={styles.fullWidthHeader}>
+          <NavBar user={user} handleSignOut={handleSignOut} />
+        </header>
         <section className={styles.appSection}>
           <Routes>
             { user 
               ?(
                 <>
                   <Route path="/" element={<Dashboard user={user} />} />
-                  <Route path="/timers/" element={<><Timer/> </>} />
-                  <Route path="/timers/:timersId" element={<><Timer /> </>} />
+                  <Route path="/timers/" element={<Timer/>} />
+                  <Route path="/timers/:timersId" element={<Timer /> } />
                   
 
                   <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
+                  
                   <Route path="/journals/" element={<Journal />} />
                   <Route path="/journals/:journalId" element={<JournalShow />} />
                   <Route path="/journals/:journalId/edit" element={<JournalForm />} />
@@ -71,9 +74,7 @@ const handleSignOut = () => {
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </section>
-        <div className='footnav'>
-
-        </div>
+        <footer className={styles.footerNav}>    </footer>
       </main>
     </>
   )
