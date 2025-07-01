@@ -77,7 +77,7 @@ const TimerForm = ({timers, onSuccess}) => {
                     type="text"
                     name="name"
                     id="name"
-                    maxLength={30}
+                    maxLength={25}
                     value={formData.name}
                     onChange={handleChange}
                 />

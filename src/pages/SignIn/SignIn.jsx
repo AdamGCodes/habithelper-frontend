@@ -62,29 +62,31 @@ const SignIn = ({ setUser }) => {
                             {errors.general}
                         </p>
                     )}
-                    <div className={styles.formGroup}>
-                        <label htmlFor="username_or_email">Username or Email:</label>
-                        <input
-                            type="text"
-                            id="username_or_email"
-                            name="username_or_email"
-                            autoComplete="username"
-                            value={formData.username_or_email}
-                            onChange={handleChange}
-                        />
+                    <div className={styles.formContent}>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="username_or_email">Username or Email:</label>
+                            <input
+                                type="text"
+                                id="username_or_email"
+                                name="username_or_email"
+                                autoComplete="username"
+                                value={formData.username_or_email}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                autoComplete="current-password"
+                                value={formData.password}
+                                onChange={handleChange}
+                            />
+                        </div>
                     </div>
 
-                    <div className={styles.formGroup}>
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            autoComplete="current-password"
-                            value={formData.password}
-                            onChange={handleChange}
-                        />
-                    </div>
                     <div className={styles.buttonGroup}>
                         <button>Sign In</button>
                         <Link to="/" className={styles.cancelButton}>
