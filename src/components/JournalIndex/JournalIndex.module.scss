@@ -1,37 +1,54 @@
 .journalIndexSection {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
+    align-items: center;
     color: #012e3f;
-    font-size: 16pt;
+    font-size: 1rem;
     font-family: Lexend, serif;
-    padding-bottom: 0;
-    ul {
-        display: flex;
-        margin-top: 0;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px 8px 0px 8px;
-        a {
-            text-decoration: none;
-            color: #012e3f;
-            li {
-                list-style: none;
-                border: #012e3f solid 3px;
-                border-radius: 50px;
-                color: white;
-                background-color: #012e3f;
-                margin: 10px;
-                padding: 0 15px;
-                
-            }
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 2rem;   
 
-            li:hover {
-                color: #012e3f;
-                background-color: white;
-                border-radius: 20px;
-            }
-        }
-
+    h1{
+        padding: 1rem 0;
     }
+    .todayButton {
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #012e3f;
+            color: white;
+            border: 2px solid #012e3f;//Just to avoid page wiggle on hover
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: 'Lexend', serif;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: white;
+                color: #012e3f;
+                border: 2px solid #012e3f;
+            }
+        } 
 }
+
+:global(.react-calendar) {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.7); // frosted glass effect
+    border-radius: 15px;
+    padding: 1rem;
+    font-family: 'Lexend', serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: none;
+    margin-top: 1rem;
+}
+
+.hasEntry {
+    background-color: #1f6e8d !important;
+    color: white !important;
+    border-radius: 15px; }

@@ -3,7 +3,7 @@ import { useEffect, useState, useSyncExternalStore } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ReactQuill from 'react-quill';
 import { FaSave, FaTimes } from 'react-icons/fa';
-
+import { format } from 'date-fns';
 
 
 
@@ -15,7 +15,7 @@ import styles from './JournalForm.module.scss'
 import { create, show, update } from '../../services/journalService'
 
 
-const JournalForm = ( { setJournals }) => {
+const JournalForm = ( { setJournals, selectedDate }) => {
     //!---States
     const [formData, setFormData] = useState({
         text: '',
@@ -25,6 +25,8 @@ const JournalForm = ( { setJournals }) => {
 
     //!---Location Variables
     const { journalId } = useParams()
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchJournal = async () => {
@@ -42,39 +44,56 @@ const JournalForm = ( { setJournals }) => {
     //!---Handlers
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        try{
-            const response = journalId
-            ? await update(journalId, formData)
-            : await create(formData);
+        e.preventDefault();
 
-            if (!journalId) {
-                setJournals((prevJournals) => [...prevJournals, response.data])
-            } else {
-                setJournals((prevJournals)=>
-                    prevJournals.map((journal) =>
-                        journal.id === journalId ? response.data : journal
-                    )
-                );
+        try {
+            const response = journalId
+                ? await update(journalId, formData)
+                : await create(formData);
+
+            const journalData = response.data || response;
+
+            if (typeof setJournals === 'function') {
+                if (!journalId) {
+                    setJournals((prev) => [...prev, journalData]);
+                } else {
+                    setJournals((prev) =>
+                        prev.map((j) => (j.id === Number(journalId) ? journalData : j))
+                    );
+                }
             }
-            setFormData({text: '' });
-        
+
+            setFormData({ text: '' });
+
+            // Redirect after successful create
+            if (!journalId) {
+                navigate('/journals');
+            }
+
         } catch (error) {
-            console.log(error.response?.data || error);
+            console.error(error.response?.data || error);
             if (error.response?.data) {
                 setErrors(error.response.data);
             } else {
                 setErrors({ general: 'Something went wrong. Please try again.' });
             }
         }
-    }
+    };      
 
     return (
         <section className={styles.journalFormSection}>
 
             <form onSubmit={handleSubmit}>
                 
-                <label htmlFor="Text"><h1>{journalId ? "Update Your Entry" : "What's on your mind?"}</h1></label>
+                <label htmlFor="Text">
+                    <h1>
+                        {journalId
+                            ? "Update your journal entry"
+                            : selectedDate
+                                ? `New Journal Entry for ${format(new Date(selectedDate), "d MMMM yyyy")}`
+                                : "What's on your mind?"}
+                    </h1>
+                </label>
                 <ReactQuill
                     theme="snow"
                     value={formData.text}

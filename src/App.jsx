@@ -22,6 +22,7 @@ import Journal from './pages/Journal/Journal';
 
 //!--- Utils
 import {getUser, removeToken } from './utils/auth'
+import JournalNew from './pages/JournalNew/JournalNew';
 import JournalShow from './components/JournalShow/JournalShow';
 import JournalEdit from './components/JournalEdit/JournalEdit';
 
@@ -59,6 +60,7 @@ const handleSignOut = () => {
                   <Route path="/habit-helpers/" element={<HabitHelper user={user} />} />
                   
                   <Route path="/journals/" element={<Journal />} />
+                  <Route path="/journals/new" element={<JournalNew />} />
                   <Route path="/journals/:journalId" element={<JournalShow />} />
                   <Route path="/journals/:journalId/edit" element={<JournalEdit />} />
                 </>
