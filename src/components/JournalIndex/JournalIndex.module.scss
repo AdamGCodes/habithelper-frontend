@@ -96,17 +96,31 @@
 :global(.react-calendar) {
     width: 100%;
     max-width: 500px;
-    background-color: rgba(255, 255, 255, 0.7); // frosted glass effect
+    background-color: rgba(255, 255, 255, 0.7); 
     border-radius: 15px;
     padding: 1rem;
     font-family: 'Lexend', serif;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     border: none;
     margin-top: 1rem;
+    gap: 1rem;
+
+    :global(.react-calendar__tile--now) {
+            border: 3px solid crimson !important;
+            border-radius: 16px !important;
+            background-color: transparent !important;
+            color: crimson !important;
+            font-weight: bold !important;
+            position: relative;   
+        }
+
+        .hasEntry {
+            border-radius: 16px !important;
+            background-color: rgba(31, 110, 141, 1) !important;
+            color: white !important;
+        }
+
+
 }
 
-.hasEntry {
-    background-color: #1f6e8d !important;
-    color: white !important;
-    border-radius: 50%; 
-}
+
