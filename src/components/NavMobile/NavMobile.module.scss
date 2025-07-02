@@ -1,0 +1,32 @@
+.navMobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #ccc;
+    padding: 0.5rem 0;
+    z-index: 999;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+
+    a {
+        color: #012e3f;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+
+        &.active {
+            color: #1f6e8d;
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}

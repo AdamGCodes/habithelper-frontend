@@ -15,7 +15,7 @@
     margin-bottom: 2rem;   
 
     h1{
-        padding: 1rem 0;
+        padding-top: 1rem;
     }
     .todayButton {
             margin: 1rem;
@@ -34,6 +34,63 @@
                 border: 2px solid #012e3f;
             }
         } 
+    .modalActions {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+
+        button {
+            background-color: #012e3f;
+            color: white;
+            border: none;
+            font-size: 1.4rem;
+            border-radius: 15px;
+            width: 4.5rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+
+            &:hover {
+                background-color: white;
+                color: #012e3f;
+                border: 2px solid #012e3f;
+            }
+        }
+
+        .safeButton {
+            background-color: #28a745;
+
+            &:hover {
+                background-color: white;
+                color: #28a745;
+                border: 2px solid #28a745;
+            }
+        }
+
+        .dangerButton {
+            background-color: #c0392b;
+
+            &:hover {
+                background-color: white;
+                color: #c0392b;
+                border: 2px solid #c0392b;
+            }
+        }
+    }
+        .helperText {
+            text-align: center;
+            font-size: 1rem;
+            color: #012e3f;
+            margin: 0;
+            font-family: 'Lexend', serif;
+    
+            @media (max-width: 600px) {
+                font-size: 0.95rem;
+            }     }
 }
 
 :global(.react-calendar) {
@@ -51,4 +108,5 @@
 .hasEntry {
     background-color: #1f6e8d !important;
     color: white !important;
-    border-radius: 15px; }
+    border-radius: 50%; 
+}

@@ -47,9 +47,17 @@ const JournalForm = ( { setJournals, selectedDate }) => {
         e.preventDefault();
 
         try {
+            const formToSend = {
+                ...formData,
+                entry_date: selectedDate
+                    ? new Date(selectedDate).toISOString().slice(0, 10) // e.g. "2025-07-01"
+                    : new Date().toISOString().slice(0, 10),
+            };
             const response = journalId
-                ? await update(journalId, formData)
-                : await create(formData);
+                ? await update(journalId, formData) // keep using formData when editing
+                : await create(formToSend);        // use formToSend when creating  
+            console.log('Creating journal with:', formToSend);
+            
 
             const journalData = response.data || response;
 

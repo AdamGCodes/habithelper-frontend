@@ -33,7 +33,7 @@ const Journal = ({ user }) => {
 
     return (
         <section className={styles.journalSection}>
-            <JournalForm setJournals={setJournals}/>
+            {/* <JournalForm setJournals={setJournals}/> */}
             <div className={styles.journalIndexSection}>
                 <JournalIndex journals={journals} limit = {null} />
             </div>

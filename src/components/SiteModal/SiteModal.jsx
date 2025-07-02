@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SiteModal.module.scss';
 
+
 const SiteModal = ({ children, onClose }) => {
     return (
         <div

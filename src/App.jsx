@@ -7,6 +7,7 @@ import styles from './App.module.scss'
 
 //!--- Componants
 import NavBar from './components/NavBar/NavBar';
+import NavMobile from './components/NavMobile/NavMobile';
 
 
 //!--- Pages
@@ -14,7 +15,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 
 import Landing from './pages/Landing/Landing';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Home from './pages/Home/Home';
   
 import Timer from './pages/Timer/Timer';
 import HabitHelper from './pages/HabitHelper/HabitHelper';
@@ -52,7 +53,7 @@ const handleSignOut = () => {
             { user 
               ?(
                 <>
-                  <Route path="/" element={<Dashboard user={user} />} />
+                  <Route path="/" element={<Home user={user} />} />
                   <Route path="/timers/" element={<Timer/>} />
                   <Route path="/timers/:timersId" element={<Timer /> } />
                   
@@ -76,7 +77,9 @@ const handleSignOut = () => {
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </section>
-        <footer className={styles.footerNav}>    </footer>
+        <footer className={styles.footerNav}>    
+          <NavMobile/>
+        </footer>
       </main>
     </>
   )

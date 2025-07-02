@@ -57,12 +57,22 @@ const JournalShow = () => {
     return (
         <section className={styles.journalShowSection}>
             <div className={styles.card}>
-                <h1>Journal Entry</h1>
-                <h2>{formatDate(journal.created_at)}</h2>
+                <h1>
+                    Journal Entry for: {format(new Date(journal.entry_date), "d MMMM yyyy")}
+                </h1>
                 <div
                     className={styles.text}
                     dangerouslySetInnerHTML={{ __html: journal.text }}
                 />
+
+                <small className={styles.meta}>
+                    Created: {format(new Date(journal.created_at), "d/MM/yy @ h:mm a")}
+                </small>
+                <small className={styles.meta}>
+                    Last Updated: {format(new Date(journal.updated_at), "d/MM/yy @ h:mm a")}
+                </small>
+
+
 
 
                 <div className={styles.actions}>

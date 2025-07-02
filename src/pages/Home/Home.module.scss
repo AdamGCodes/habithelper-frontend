@@ -1,0 +1,79 @@
+.homeSection {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Lexend', serif;
+    color: #012e3f;
+
+    .frostedWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);     
+        
+            .welcome {
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+            
+                }
+            
+                .quoteBox {
+                    background-color: rgba(255, 255, 255);
+                    border-radius: 12px;
+                    padding: 1rem;
+                    margin-bottom: 2rem;
+                    max-width: 500px;
+                    text-align: center;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            
+                    .quote {
+                        font-style: italic;
+                        font-size: 1rem;
+                        color: #444;
+                    }
+                }
+            
+                .actions {
+                    display: flex;
+                    gap: 1.5rem;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    max-width: 600px;
+                    text-align: center;
+            
+                    .actionTile {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: rgba(255, 255, 255);
+                        border: 2px solid #012e3f;
+                        border-radius: 12px;
+                        padding: 1rem;
+                        width: 120px;
+                        text-decoration: none;
+                        color: #012e3f;
+                        transition: all 0.2s ease-in-out;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+                        &:hover {
+                            background-color: #012e3f;
+                            color: white;
+                            border-color: #012e3f;
+                        }
+            
+                        .icon {
+                            margin-bottom: 0.5rem;
+                        }       
+                    }
+                }
+            }    
+        }
